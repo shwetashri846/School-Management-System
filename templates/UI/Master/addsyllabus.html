@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	{%include "UI/Master/head.html"%}
+
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{%include "UI/Master/sidebar.html"%}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{%include "UI/Master/header.html"%}
+		<!-- //header-ends -->	
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				<!-- <div class="row-one">
+					<div class="col-md-4 widget">
+						<div class="stats-left ">
+							<h5>Today</h5>
+							<h4>Teachers</h4>
+						</div>
+						<div class="stats-right">
+							<label> 45</label>
+						</div>
+						<div class="clearfix"> </div>	
+					</div>
+					<div class="col-md-4 widget states-mdl">
+						<div class="stats-left">
+							<h5>Today</h5>
+							<h4>Students</h4>
+						</div>
+						<div class="stats-right">
+							<label> 80</label>
+						</div>
+						<div class="clearfix"> </div>	
+					</div>
+					<div class="col-md-4 widget states-last">
+						<div class="stats-left">
+							<h5>Today</h5>
+							<h4>Departments</h4>
+						</div>
+						<div class="stats-right">
+							<label>51</label>
+						</div>
+						<div class="clearfix"> </div>	
+					</div>
+					<div class="clearfix"> </div>	
+				</div> -->
+				<div class="row">
+					<center><h1>{{msg}}</h1></center>
+					<h3 class="title1"><u><b><center>Add Syllabus<center></b></u></h3>
+					<div class="form-three widget-shadow">
+						<form class="form-horizontal" action="/UI/Master/addsyllabus" method="post">
+							<div class="row">
+								<div class="col-md-1">
+								</div>
+									<div class="col-md-10">
+										
+                                        <div class="row">
+											<div class="col-md-2">
+												<b>Class</b>
+
+											</div>
+											<div class="col-md-8">
+												<select name="class" data-live-search="true" id="add_class" class="form-control">
+													{% for row in add_class %}
+													<option value="{{row.class}}">{{row.class}}</option>
+													{% endfor %}
+												</select>
+											</div>
+											&nbsp;
+											<div class="row">
+												<div class="col-md-2">
+													<b>Subject</b>
+												</div>
+												<div class="col-md-8">
+													<select name="subject" data-live-search="true" id="subject"    class="form-control" > 
+                                                    {% for row in addsubject %}
+                                                    <option value="{{row.subject}}">{{row.subject}}</option>
+                                                    {% endfor %}
+												</select>
+												</div>
+												&nbsp;
+												<div class="row">
+													<div class="col-md-2">
+                                                    	<b>Topic</b>
+            
+                                                	</div>
+                                                	<div class="col-md-8">
+                                                    	<input type="text" id ="topic" name="topic" placeholder="topic"  class="form-control">
+            
+                                                	</div>
+    
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <b>Completion Days</b>
+            
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="text" id ="complete" name="complete" placeholder="No Of Days To Complete"  class="form-control">
+            
+                                                </div>
+												<div class="col-md-2">
+											
+													<button type="submit" class="btn btn-primary" >submit</button>
+												
+											</div>
+											<br>
+											<br>
+											<br>
+											<br>
+    
+                                            </div>
+										</div>
+
+
+                                        
+										
+										
+										
+									</div>
+									
+								</div>
+								
+						</form>
+						<br>
+
+
+						<div class="row">
+							<div class="col-md-3">
+								&nbsp;
+							</div>
+							<div class="col-md-12 table-responsive text-nowrap">
+								<table id="data" class="table table-striped">
+
+									<!--Table head-->
+									<thead>
+										<tr>
+										  <th>Sl.No</th>
+										  <th>Class</th>
+										  <th>Subject</th>
+										  <th>Topic</th>
+										  <th>Completion Days</th>
+										  
+										  
+										</tr>
+									  </thead>
+									  <!--Table head-->
+							
+									  <!--Table body-->
+								   
+									  <tbody>
+										  {% for row in addsyllabus %}
+											  <tr>
+												  <td>{{ row.0 }}</td>
+												  <td>{{ row.1 }}</td>
+												  <td>{{ row.2 }}</td>
+												  <td>{{ row.3 }}</td>
+												  <td>{{ row.4 }}</td>
+												  
+												  
+											</tr>
+											<!-- <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+															<h4 class="modal-title">Update Class</h4>
+														</div>
+														<div class="modal-body">
+															<form action="/update" method="POST">
+																<div class="form-group">
+																	<label>Add Class:</label>
+																	<input type="hidden"  name="id" value="{{row.0}}">
+																	<input type="text" class="form-control" name="class"id="class" value="{{row.1}}">
+									 
+									 
+																</div>
+																<div class="form-group">
+									 
+									 
+																	<button class="btn btn-primary" type="sbumit">Update</button>
+									 
+									 
+																</div>
+															</form>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														</div>
+													</div>
+												</div>
+											</div> -->
+										{% endfor  %}
+								</tbody>
+							</table>
+						</div>
+
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="cal1" style="visibility:hidden">
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+	
+	<!-- Classie -->
+	{%include "UI/Master/footer.html"%}
+</html>

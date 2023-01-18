@@ -1,0 +1,188 @@
+
+    <html>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!-- <script language="javascript" type="text/javascript">
+        function dynamicdropdown(listindex)
+        {
+            switch (listindex)
+            {
+            case "manual" :
+                document.getElementById("status").options[0]=new Option("Select status","");
+                document.getElementById("status").options[1]=new Option("OPEN","open");
+                document.getElementById("status").options[2]=new Option("DELIVERED","delivered");
+                break;
+            case "online" :
+                document.getElementById("status").options[0]=new Option("Select status","");
+                document.getElementById("status").options[1]=new Option("OPEN","open");
+                document.getElementById("status").options[2]=new Option("DELIVERED","delivered");
+                document.getElementById("status").options[3]=new Option("SHIPPED","shipped");
+                break;
+            }
+            return true;
+        }
+        </script> -->
+        </head>
+        <title>Dynamic Drop Down List</title>
+        <body >
+            <form action="/dpdemo">
+                <!-- <p id="text"></p>
+                <input type="text" id="input">
+                <span id="note"></span> -->
+
+                
+    <h2>Select any Element</h2>
+    <p>The event will be fired after the selection and the function associated with onchange will execute.</p>
+
+    <!-- <select id="mySelect" onchange="myFunction()"> -->
+        <!-- <option value="" disabled selected hidden>Choose a Technology</option>
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="Javascript">Javascript</option>
+        <option value="PHP">PHP</option> -->
+        <select id="feetitle" name="feetitle" onchange="myFunction()" >
+            {%for row in addfeetitle%}
+            <option value="{{row.feetitle}}">{{row.feetitle}}</option>
+            {%endfor%}
+        </select>
+        <input type="text" id="id"name="id" value="{{addfeetitle[id]}}">
+        <!-- <select id="category" name="category"  >
+            {%for row in addfeecategory%}
+            <option value="{{row.category}}">{{row.category}}</option>
+            {%endfor%}
+        </select> -->
+     
+    
+
+
+    <p id="show"></p>
+
+    <script>
+        function myFunction() {
+            var value = document.getElementById("feetitle").value;
+            
+            var x = document.getElementById("show")
+            x.innerHTML = "Selected Value: " + value;
+        }
+    </script>
+
+</body>
+
+</html>
+
+                
+
+
+
+                
+                
+        <!-- <div class="category_div" id="category_div">Source:
+            <select id="source" name="source" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+            <option value="">Select source</option>
+            <option value="manual">MANUAL</option>
+            <option value="online">ONLINE</option>
+            </select>
+        </div> -->
+        <!-- <div class="row">
+            <div class="col-md-2">
+                <b>Feetitle</b>
+    
+            </div>
+            <div class="col-md-8">
+                <select id="feetitle" name="feetitle" class="form-control" onchange="dpdemotest()">
+                    {%for row in addfeetitle%}
+                    <option value="{{row.feetitle}}">{{row.feetitle}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <b>Feetitle</b>
+    
+            </div>
+            <div class="col-md-8">
+                <input value="{{addfeetitle[id]}}">
+                <select id="id" name="id" class="form-control">
+                    {%for row in addfeetitle%}
+                    <option value="{{row.id}}">{{row.id}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+        </div> -->
+<!-- "        <div class="sub_category_div" id="sub_category_div">Status:
+            <script type="text/javascript" language="JavaScript">
+            document.write('<select name="status" id="status"><option value="">Select status</option></select>')
+            </script>
+            <noscript>
+            <select id="status" name="status">
+                <option value="open">OPEN</option>
+                <option value="delivered">DELIVERED</option>
+            </select>
+            </noscript>
+        </div>
+        </body>
+    </html>
+    
+    
+       
+    
+    <!- Status: -->
+    <!-- <script>
+        $(document).on('ready', function () {
+            $("#source").on('change', function () {
+                var el = $(this);
+                if (el.val() === "ONLINE") {
+                    $("#status").append("<option>SHIPPED</option>");
+                } else if (el.val() === "MANUAL") {
+                    $("#status option:last-child").remove();
+                }
+            });
+        });
+    </script> -->
+    <!-- <script>
+    $.ajax({
+        url: 'url that will display all list'
+        dataType: 'json',
+        type: 'get',
+        success: function(data){
+          var output = "";
+           $.each(data, function(a,b){
+              output += "<option value='"+b.id+"'>"+b.manager_select_name+"  </option>"
+            $("#manager_select").append(output);
+           });
+        }
+    })
+    </script> -->
+    <!-- <script>
+    $.ajax({
+        url: 'url that will display employee data where manager_id = manager_id ',
+        type: 'POST',
+        dataType: 'json',
+        data: { 'manager_id' : manager_id } /* you are passing manager_id*/
+        success: function(data){
+             $("#employee_select").empty();
+             var output = "";
+             $.each(data, function(a,b){
+                 output += "<option id="+b.employee_id+">"+b.employee_desc+"</option>";
+             })
+             $("#employee_select").append(output);
+        }
+    })
+    </script>   -->
+   
+    <!-- <script type="text/javascript">
+        let text=document.getElementById('text')
+        let input=document.getElementById('input')
+        let note=document.getElementById('note')
+        function load(){
+            text.innerHTML='The Page Has loaded'
+        }
+        input.onchange=function(){
+            this.value=this.value.toUpperCase()
+            text.innerHtml=this.value;
+
+        }
+    </script>
+     -->
+    
