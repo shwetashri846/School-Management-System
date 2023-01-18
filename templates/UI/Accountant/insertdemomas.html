@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+{%include "UI/Accountant/head.html"%}
+
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{%include "UI/Accountant/sidebar.html"%}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{%include "UI/Accountant/header.html"%}
+		<!-- //header-ends -->	
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				<div class="row">
+					<center><h1>{{msg}}</h1></center>
+					<h3 class="title1"><u><b><center>Fee Amount Add<center></b></u></h3>
+					<div class="form-three widget-shadow">
+						<form  name=form1 class="form-horizontal" action="/UI/Accountant/insert" method="post">
+							<div class="row">
+								<div class="col-md-1">
+									<a href="/UI/Accountant/generatefee"><i class="fa fa-arrow-left"></i></a>
+								</div>
+									<div class="col-md-10">
+										
+										
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <b>name</b>
+												<br>
+                                                <input type="text" name="name"  id="name" class="form-control" value=" {{ studentreport['name'] }}">
+                                                    
+                                                               
+                                            </div>
+											<div class="col-md-3">
+												<b>Class</b><br>
+												<input type="text" name="class"  id="add_class"   class="form-control" value= "{{studentreport['class']}}">
+											</div>
+											<div class="col-md-3">
+												<b>Roll</b><br>
+												<input type="text" name="rollno"  id="rollno"   class="form-control" value= "{{studentreport['rollno']}}">
+											</div>
+											<div class="col-md-3">
+												<b>Session</b><br>
+												<input type="text" name="add_session"  id="add_session"   class="form-control" value= "{{studentreport['add_session']}}">
+											</div>
+										
+										
+										</div>
+                                        <div class="row">
+											<div class="col-md-3">
+												<b>Section</b><br>
+												<input type="text" name="add_section"  id="add_section"   class="form-control" value= "{{studentreport['add_section']}}">
+											</div>
+											<div class="col-md-3">
+												<b>Admission Date</b><br>
+												<input type="text" name="admissiondate"  id="admissiondate"   class="form-control" value= "{{studentreport['admissiondate']}}">
+											</div>
+										</div>
+										<hr>
+										<div class="row">
+											<div class="col-md-3">
+												<b>Feetitle</b><br>
+
+												<select  name="feetitle"  id="feetitle"   class="form-control">
+													{%for row in addfeeamount%}
+													<option value="{{row.feetitle}}">{{row.feetitle}}</option>
+													{%endfor%}
+												</select>
+													
+
+											</div>
+											<div class="col-md-3">
+                                                <b>Category</b><br>
+												<select name="category"   id="category" class="form-control">
+													{%for row in addfeeamount%}
+													<option value="{{row.category}}">{{row.categeory}}</option>
+												</select>
+                                                    
+            
+                                            </div>
+											<div class="col-md-3">
+                                                <b>Fee Amount</b><br>
+												<input name="actualfee"   id="actualfee" class="form-control" placeholder="Actual Fee">
+													
+												
+                                                    
+            
+                                            </div>
+											
+										</div>
+										
+                                        
+
+                                    
+                                
+
+                                        
+										
+									</div>	
+								</div>
+								
+								
+
+						 
+
+								
+								
+								
+								
+						  
+							
+							
+							
+
+							
+							
+							
+							
+						<!-- </form> -->
+
+
+						<div class="row">
+							<div class="col-md-3">
+								&nbsp;
+							</div>
+							<div class="col-md-12 table-responsive text-nowrap">
+								<table id="data" class="table table-striped">
+
+									<!--Table head-->
+									<thead style="background-color:#4f52ba;">
+										<tr style="color:white;">
+											<th>Sl.No</th>
+											<th>FEETITLE</th>
+											<th>CATEGORY</th>
+											<th>CLASS</th>
+											<th>FEE AMOUNT</th>
+											<th>CHECKBOX</th>
+											
+											
+										  </tr>
+									  </thead>
+									  <!--Table head-->
+							
+									  <!--Table body-->
+								   
+									  <tbody style="background-color:rgb(154, 173, 255);">
+										{% for row in addfeeamount %}
+										   <tr>
+											<td>{{ row.0 }}</td>
+											<td>{{ row.1 }}</td>
+											<td>{{ row.2 }}</td>
+											<td>{{ row.3 }}</td>
+											<td>{{ row.4 }}</td>
+											<td>
+											  <input type="checkbox"  name="ckb"   value="{{row.4}}" onclick='chkcontrol(4)';>
+											 </td>
+											 
+										</tr>
+										{% endfor  %}
+								</tbody>
+							</table>
+						</div>
+						<script type="text/javascript"> 
+							function chkcontrol(j) {
+							var sum=0;
+							for(var i=0; i < document.form1.ckb.length; i++){
+							
+							if(document.form1.ckb[i].checked){
+							sum = sum + parseInt(document.form1.ckb[i].value);
+							}
+							document.getElementById("msg").innerHTML=+ sum;
+							document.getElementById("actualfee").value= + sum;
+							
+							if(sum >5000){
+							sum = sum - parseInt(document.form1.ckb[j].value);
+							document.form1.ckb[j].checked = false ;
+							// alert("Sum of the selection can't be more than 1200") 
+							//return false;
+							}
+							document.getElementById("msg").innerHTML=+ sum;
+							}
+							}
+							</script>
+							<div class="row" style="margin-top:-10px;">
+							<div class="col-md-4">
+								
+							</div>
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-md-4" >
+
+										<p>Total :</p>&nbsp;
+										<p>Discount:</p>
+										&nbsp;
+										<p>Final Total:</p>
+										
+									</div>
+									<div class="col-md-4">
+										
+									   <div id=msg  style="background-color:coral; visibility: hidden;"></div>
+									    <input type="text" id="actualfee"name="actualfee" />
+										&nbsp;
+										<input  type="text"id="discount" name="discount" onchange="abc()">
+										&nbsp;
+										<!-- <button onclick="getPrice()">Get total</button>&nbsp; -->
+										<input  type="text" readonly id="total"  name="total">
+										<br><br>
+										
+										<button type="submit" class="btn btn-primary" >submit</button>
+										 
+									</div>
+								</div>
+							</div>
+							<script>
+							 function abc()
+							 {
+								var numVal1 = Number(document.getElementById("actualfee").value);  
+								var numVal2 = Number(document.getElementById("discount").value);
+								var totalvalue = numVal1 -  numVal2;
+								total.value = totalvalue;
+								//document.getElementById("total").value = totalValue;
+								return 0;
+								}
+							</script> 
+
+
+
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	<div class="cal1" style="visibility:hidden">
+						
+	</div>
+		
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+</div>
+<!-- Classie -->
+	<!-- Classie -->
+	<!-- Classie -->
+	{%include "UI/Accountant/footer.html"%}
+</html>

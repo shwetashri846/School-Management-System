@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    {%include "UI/Accountant/head.html"%}
+
+
+
+    <!--//Metis Menu -->
+</head>
+
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+        <!--left-fixed -navigation-->
+        {%include "UI/Accountant/sidebar.html"%}
+        <!--left-fixed -navigation-->
+        <!-- header-starts -->
+        {%include "UI/Accountant/header.html"%}
+        <!-- //header-ends -->
+        <!----main content-->
+        <div id="page-wrapper">
+            <div class="main-page">
+                <!-- <form action="/addclass" method="POST"> -->
+                    <!-- <div class="row-one">
+                        <div class="col-md-4 widget">
+                            <div class="stats-left ">
+                                <h5>Today</h5>
+                                <h4>Teachers</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label> 45</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="col-md-4 widget states-mdl">
+                            <div class="stats-left">
+                                <h5>Today</h5>
+                                <h4>Students</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label> 80</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="col-md-4 widget states-last">
+                            <div class="stats-left">
+                                <h5>Today</h5>
+                                <h4>Departments</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label>51</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div> -->
+                   
+                    <div class="row">
+                        <center>
+                            <h1>{{msg}}</h1>
+                        </center>
+                        <h3 class="title1"><u><b><center> Student Fee Report<center></b></u></h3>
+                        <div class="form-three widget-shadow">
+                            <form class="form-horizontal" action="/UI/Accountant/monthlyfee" method="post">
+                            <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <b>Roll No</b><br>
+                                    <select  id="rollno" name="rollno"class=form-control >
+                                        {%for row in practice%}
+                                        <option value="{{row.rollno}}">{{row.rollno}}</option>
+                                        {%endfor%}
+                                    </select>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <b>Class</b><br>
+                                    <select  id="add_class" name="class"class=form-control >
+                                        {%for row in add_class%}
+                                        <option value="{{row.class}}">{{row.class}}</option>
+                                        {%endfor%}
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <b>Section</b><br>
+                                    <select  id="add_section" name="add_section"class=form-control >
+                                        {%for row in new_section%}
+                                        <option value="{{row.add_section}}">{{row.add_section}}</option>
+                                        {%endfor%}
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <b></b><br>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                            </div>
+
+                            </form>
+                           
+
+
+
+
+                                
+                                                        
+                                                                    
+                                                                    
+                                 
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="cal1" style="visibility:hidden">
+
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+
+    <!--//footer-->
+    </div>
+    <!-- Classie -->
+    <!-- Classie -->
+    <!-- Classie -->
+    {%include "UI/Accountant/footer.html"%}
+</html>

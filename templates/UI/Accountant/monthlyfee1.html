@@ -1,0 +1,734 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    {%include "UI/Accountant/head.html"%}
+
+
+
+    <!--//Metis Menu -->
+</head>
+
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+        <!--left-fixed -navigation-->
+        {%include "UI/Accountant/sidebar.html"%}
+        <!--left-fixed -navigation-->
+        <!-- header-starts -->
+        {%include "UI/Accountant/header.html"%}
+        <!-- //header-ends -->
+        <!----main content-->
+        <div id="page-wrapper">
+            <div class="main-page">
+                <!-- <form action="/addclass" method="POST"> -->
+                    <!-- <div class="row-one">
+                        <div class="col-md-4 widget">
+                            <div class="stats-left ">
+                                <h5>Today</h5>
+                                <h4>Teachers</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label> 45</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="col-md-4 widget states-mdl">
+                            <div class="stats-left">
+                                <h5>Today</h5>
+                                <h4>Students</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label> 80</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="col-md-4 widget states-last">
+                            <div class="stats-left">
+                                <h5>Today</h5>
+                                <h4>Departments</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label>51</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div> -->
+                   
+                    <div class="row">
+                        <center>
+                            <h1>{{msg}}</h1>
+                        </center>
+                        <h3 class="title1"><u><b><center> Student Fee Report<center></b></u></h3>
+                        <div class="form-three widget-shadow">
+                            <form class="form-horizontal" action="/UI/Accountant/monthlyfee" method="post">
+                            
+
+                            </form>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    &nbsp;
+                                </div>
+                                <div class="col-md-12 table-responsive text-nowrap">
+                                    <table id="data" class="table table-striped" >
+    
+                                        <!--Table head-->
+                                        <thead style="background-color:#4f52ba;">
+                                            <tr style="color:white;">
+                                              <th>Sl.No</th>
+                                              <th>Name</th>
+                                              <th>Roll No</th>
+                                              <th>Class</th>
+                                              <th>Section</th>
+                                              <th>Session</th>
+                                              <!-- <th>Admission Date</th> -->
+                                              <th>System Date & Time</th>
+                                              <th>Feetitle</th>
+                                              <th>Category</th>
+                                              <th>Actual Fee</th>
+                                              <th>Discount</th>
+                                              <th>Total</th>
+                                              <th>pdf</th>
+                                              
+                                              
+                                            </tr>
+                                          </thead>
+                                          <!--Table head-->
+                                
+                                          <!--Table body-->
+                                       
+                                          <tbody >
+                                              {% for row in practice %}
+                                                  <tr style="background-color:rgb(154, 173, 255);">
+                                                      <td>{{ row.0 }}</td>
+                                                      <td>{{ row.1 }}</td>
+                                                      <td>{{ row.2 }}</td>
+                                                      <td>{{ row.3 }}</td>
+                                                      <td>{{ row.4 }}</td>
+                                                      <td>{{ row.5 }}</td>
+                                                      <td>{{ row.6 }}</td>
+                                                      <td>{{ row.7 }}</td>
+                                                      <td>{{ row.8 }}</td>
+                                                      <td>{{ row.9 }}</td>
+                                                      <td>{{ row.10 }}</td>
+                                                      <td>{{ row.11 }}</td>
+                                                      <!-- <td>{{ row.12 }}</td> -->
+                                                      
+                                                       <td>
+                                                       <a href="/UI/Accountant/monthlyfee/{{row.0}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#search{{row.0}}"style="width:35px;height:35px;padding:6px 2px"><span class="glyphicon glyphicon-edit" style="width:32px;height:32px"></span></a>
+                                                       </td>
+                                                       
+                                                </tr>
+                                                
+                                                <!-- <div class="row"> 
+                                                    
+                                                   
+                                                    <h3 class="title1"><u><b><center>Monthly Fee Bill<center></b></u></h3>
+                                                    <div class="form-three widget-shadow">
+                                                        <form class="form-horizontal"   id="search{{row.0}}" action="/UI/Accountant/monthlyfee" method="post">
+                                                            <div class="row">
+                                                                <p>
+                                                                    {% with messages = get_flashed_messages() %}
+                                                                    {% if messages %}
+                                                                    <ul>
+                                                                        {% for message in messages %}
+                                                                        <li>{{ message }}</li>
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                                    {% endif %}
+                                                                    {% endwith %}
+                                                                </p>
+                                                                <div class="col-md-1">
+                                                                </div>
+                                                                    <div class="col-md-10">
+                                                                        
+                                                                    </div>
+                                        
+                                                                <div class="col-md-1">
+                                                                </div>
+                                                                <center><table width="100%" >
+                                                                    <tr >
+                                                                        <td width="30%">
+                                
+                                                                        </td>
+                                                                        <td width="30%">
+                                                                           
+                                                                        </td>
+                                                                        <td width="30%">
+                                                                            <i class="fa fa-print" style="color:red;">print</i>
+                                                                        </td>
+                                                                        
+                                
+                                                                    </tr>
+                                                                    <tr style="height: 20px;"></tr>
+                                                                    
+                                                                        <tr >
+                                                                            <td width="30%">
+                                                                                <img src="../../static/images/schoollogo.png" style="height:200px;">
+                                                                            </td>
+                                                                            <td width="30%" >
+                                                                                <h4 >SCHOOL MANAGEMENT SYSTEM</h4>
+                                
+                                                                            </td>
+                                                                            <td width="30%">
+                                                                                <h5>Mobile No: 6206305526</h5><br>
+                                                                                <h5>Email Id: shweta@gmail.com</h5><br>
+                                                                                <h5>Address: Patliputra Patna,Bihar,India,800001</h5>
+                                
+                                                                            </td>
+                                
+                                                                        </tr>
+                                                                    
+                                                                </table></center><br>
+                                                               
+                                                                <center><table width="100%" border="0" >
+                                                                    
+                                                                    
+                                                                    <tr >
+                                                                        <td width="30%">
+                                                                            <input type="hidden"  name="id" value="{{row.0}}">
+                                                                            <input type="text" name="name" id="name" placeholder="name" class="form-control" value="{{row.1}}">
+                                                                        </td>
+                                                                        <td width="20%" >
+                                                                            <input type="hidden"  name="id" value="{{row.0}}">
+                                                                            <input type="text" name="rollno" id="rollno" placeholder="Roll No" class="form-control" value="{{row.2}}" >
+                                                                        </td>
+                                                                        <td width="20%">
+                                                                            <input type="hidden"  name="id" value="{{row.0}}">
+                                                                            <input type="text" name="class" id="add_class" placeholder="Class" class="form-control" value="{{row.3}}">
+                                
+                                                                        </td>
+                                
+                                                                    </tr>
+                                                                    <tr style="height: 20px;"></tr>
+                                                                    <tr >
+                                                                            <td width="20%" >
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="add_section" id="add_section" placeholder="Section" class="form-control" value="{{row.4}}">>
+                                                                            </td>
+                                                                            <td width="30%">
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="add_session" id="add_session" placeholder="Session"class="form-control" value="{{row.5}}">>
+                                                                            </td>
+                                                                            
+                                                                            <td width="20%">
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="date" id="date" placeholder="date" class="form-control" value="{{row.6}}">>
+                                    
+                                                                            </td>
+                                    
+                                                                    </tr>
+                                                                    <tr style="height: 20px;"></tr>
+                                                                    <tr >
+                                                                            <td width="30%">
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="feetitle" id="feetitle" placeholder="Feetitle"class="form-control" value="{{row.7}}">>
+                                                                            </td>
+                                                                            <td width="30%" >
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="category" id="category" placeholder="Category" class="form-control" value="{{row.8}}">>
+                                                                            </td>
+                                                                            
+                                                                    </tr>
+                                                                    <tr style="height: 20px;"></tr>
+                                                                    <tr >
+                                                                            <td width="30%">
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="actualfee" id="actualfee" placeholder="Actualfee"class="form-control" value="{{row.9}}">>
+                                                                            </td>
+                                                                            <td width="30%" >
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="discount" id="discount" placeholder="Discount" class="form-control" value="{{row.10}}">>
+                                                                            </td>
+                                                                            <td width="30%" >
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="total" id="total" placeholder="Total" class="form-control" value="{{row.11}}">>
+                                                                            </td>
+                                                                            
+                                                                    </tr>
+                                                                    
+                                                                </table></center>    
+                                                                    
+                                                                
+                                    
+                                                                
+                                                                
+                                                            </div>    
+                                                        
+                                                        </form>
+                                
+                                
+                                
+                                                        
+                                                            
+                                                    </div>
+                                                    
+                                                    
+                                                </div>  -->
+                                                
+                                                <!-- <div id="search{{row.0}}" class="modal fade" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">Update Student Fee Report</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="/UI/Accountant/monthlyfee" method="POST">
+                                                                    <div class="form-group" width="100%;">
+                                                                        <img src="../../static/images/schoollogo.png" style="height:200px;"><h4 >SCHOOL MANAGEMENT SYSTEM</h4>
+                                                                        <label style="width:30%;">Name:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" name="name" id="name" placeholder="name" class="form-control" value="{{row.1}}">
+                                                                        <label style="width:30%;">Roll No:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" name="rollno" id="rollno" placeholder="Roll No" class="form-control" value="{{row.2}}" >
+                                                                        <label style="width:30%;">class:</label>       
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" name="class" id="add_class" placeholder="Class" class="form-control" value="{{row.3}}">
+                                        
+                                                                               
+                                                                       
+                                                                        <!- <label>Name:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="name"id="name" value="{{row.1}}"> ->
+                                         
+                                         
+                                                                    </div> -->
+                                                                    <!-- <div class="form-group">
+                                                                        <label>Roll No:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="rollno"id="rollno" value="{{row.2}}">
+                                         
+                                         
+                                                                    </div> -->
+                                                                    <!-- <div class="form-group">
+                                                                        <label>Class:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="class"id="add_class" value="{{row.3}}">
+                                         
+                                         
+                                                                    </div> -->
+                                                                    <!-- <div class="form-group">
+                                                                        <label>Section:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="add_section"id="add_section" value="{{row.4}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Session:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="add_session"id="add_session" value="{{row.5}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label> Date:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="date"id="date" value="{{row.6}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Feetitle:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="feetitle"id="feetitle" value="{{row.7}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Category:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="category"id="category" value="{{row.8}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Actual Fee:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="actualfee"id="actualfee" value="{{row.9}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Discount:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="discount"id="discount" value="{{row.10}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Total Amount:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="total"id="total" value="{{row.11}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                         
+                                         
+                                                                        <button class="btn btn-primary" type="sbumit">Update</button>
+                                         
+                                         
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+
+
+
+<!-- 
+                                                <!- <div class="row"> -->
+                                                    
+                                                    <!-- <div id="search{{row.0}}"> -->
+                                                    <!-- <h3 class="title1"><u><b><center>Monthly Fee Bill<center></b></u></h3>
+                                                    <div class="form-three widget-shadow">
+                                                        <form class="form-horizontal"  action="/abc" method="post">
+                                                            <div class="row">
+                                                                <p>
+                                                                    {% with messages = get_flashed_messages() %}
+                                                                    {% if messages %}
+                                                                    <ul>
+                                                                        {% for message in messages %}
+                                                                        <li>{{ message }}</li>
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                                    {% endif %}
+                                                                    {% endwith %}
+                                                                </p>
+                                                                <div class="col-md-1">
+                                                                </div>
+                                                                    <div class="col-md-10">
+                                                                        
+                                                                    </div>
+                                        
+                                                                <div class="col-md-1">
+                                                                </div>
+                                                                <center><table width="100%" >
+                                                                    <tr >
+                                                                        <td width="30%">
+                                
+                                                                        </td>
+                                                                        <td width="30%">
+                                                                           
+                                                                        </td>
+                                                                        <td width="30%">
+                                                                            <i class="fa fa-print" style="color:red;">print</i>
+                                                                        </td>
+                                                                        
+                                
+                                                                    </tr>
+                                                                    <tr style="height: 20px;"></tr>
+                                                                    
+                                                                        <tr >
+                                                                            <td width="30%">
+                                                                                <img src="../../static/images/schoollogo.png" style="height:200px;">
+                                                                            </td>
+                                                                            <td width="30%" >
+                                                                                <h4 >SCHOOL MANAGEMENT SYSTEM</h4>
+                                
+                                                                            </td>
+                                                                            <td width="30%">
+                                                                                <h5>Mobile No: 6206305526</h5><br>
+                                                                                <h5>Email Id: shweta@gmail.com</h5><br>
+                                                                                <h5>Address: Patliputra Patna,Bihar,India,800001</h5>
+                                
+                                                                            </td>
+                                
+                                                                        </tr>
+                                                                    
+                                                                </table></center><br>
+                                                               
+                                                                <center><table width="100%" border="0" >
+                                                                    
+                                                                    
+                                                                    <tr >
+                                                                        <td width="30%">
+                                                                            <input type="hidden"  name="id" value="{{row.0}}">
+                                                                            <input type="text" name="name" id="name" placeholder="name" class="form-control" value="{{row.1}}">
+                                                                        </td>
+                                                                        <td width="20%" >
+                                                                            <input type="hidden"  name="id" value="{{row.0}}">
+                                                                            <input type="text" name="rollno" id="rollno" placeholder="Roll No" class="form-control" value="{{row.2}}" >
+                                                                        </td>
+                                                                        <td width="20%">
+                                                                            <input type="hidden"  name="id" value="{{row.0}}">
+                                                                            <input type="text" name="class" id="add_class" placeholder="Class" class="form-control" value="{{row.3}}">
+                                
+                                                                        </td>
+                                
+                                                                    </tr>
+                                                                    <tr style="height: 20px;"></tr>
+                                                                    <tr >
+                                                                            <td width="20%" >
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="add_section" id="add_section" placeholder="Section" class="form-control" value="{{row.4}}">>
+                                                                            </td>
+                                                                            <td width="30%">
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="add_session" id="add_session" placeholder="Session"class="form-control" value="{{row.5}}">>
+                                                                            </td>
+                                                                            
+                                                                            <td width="20%">
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="date" id="date" placeholder="date" class="form-control" value="{{row.6}}">>
+                                    
+                                                                            </td>
+                                    
+                                                                    </tr>
+                                                                    <tr style="height: 20px;"></tr>
+                                                                    <tr >
+                                                                            <td width="30%">
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="feetitle" id="feetitle" placeholder="Feetitle"class="form-control" value="{{row.7}}">>
+                                                                            </td>
+                                                                            <td width="30%" >
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="category" id="category" placeholder="Category" class="form-control" value="{{row.8}}">>
+                                                                            </td>
+                                                                            
+                                                                    </tr>
+                                                                    <tr style="height: 20px;"></tr>
+                                                                    <tr >
+                                                                            <td width="30%">
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="actualfee" id="actualfee" placeholder="Actualfee"class="form-control" value="{{row.9}}">>
+                                                                            </td>
+                                                                            <td width="30%" >
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="discount" id="discount" placeholder="Discount" class="form-control" value="{{row.10}}">>
+                                                                            </td>
+                                                                            <td width="30%" >
+                                                                                <input type="hidden"  name="id" value="{{row.0}}">
+                                                                                <input type="text" name="total" id="total" placeholder="Total" class="form-control" value="{{row.11}}">>
+                                                                            </td>
+                                                                            
+                                                                    </tr>
+                                                                    
+                                                                    
+                                                                    
+                                                                
+                                    
+                                                                
+                                                                </table></center>
+                                                                
+                                                                
+                                                                 
+                                    
+                                                                
+                                                                     
+                                        
+                                                            
+                                                            
+                                                                
+                                        
+                                                            
+                                                            
+                                                            
+                                
+                                                            
+                                                                
+                                                            
+                                                            
+                                                            
+                                                            
+                                                                     
+                                
+                                                                     
+                                
+                                                            
+                                
+                                                            
+                                                            
+                                                            
+                                
+                                
+                                
+                                                        
+                                
+                                
+                                                        
+                                                                    
+                                                                    
+                                
+                                
+                                
+                                
+                                
+                                                                        
+                                                                    
+                                                                
+                                
+                                                         
+                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                          
+                                                            
+                                                            
+                                                            
+                                
+                                                            
+                                                            
+                                                            
+                                                            
+                                                        </form>
+                                
+                                
+                                
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                &nbsp;
+                                                            </div>
+                                                            
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        &nbsp;
+                                                    </div>
+                                                </div> --> 
+                                                <!-- <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">Update Student Fee Report</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="/UI/Report/studentfeereport" method="POST">
+                                                                    <div class="form-group">
+                                                                        <label>Name:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="name"id="name" value="{{row.1}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Roll No:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="rollno"id="rollno" value="{{row.2}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Class:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="class"id="add_class" value="{{row.3}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Section:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="add_section"id="add_section" value="{{row.4}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Session:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="add_session"id="add_session" value="{{row.5}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Admission Date:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="admissiondate"id="admissiondate" value="{{row.6}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Feetitle:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="feetitle"id="feetitle" value="{{row.7}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Category:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="category"id="category" value="{{row.8}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Actual Fee:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="actualfee"id="actualfee" value="{{row.9}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Discount:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="discount"id="discount" value="{{row.10}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Total Amount:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="total"id="total" value="{{row.11}}">
+                                         
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                         
+                                         
+                                                                        <button class="btn btn-primary" type="sbumit">Update</button>
+                                         
+                                         
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>  -->
+                                            
+                                            </td> 
+                                        </tr>
+                                        {% endfor  %}
+                                    </tbody>
+                                </table>
+                            </div> 
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="cal1" style="visibility:hidden">
+
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+
+    <!--//footer-->
+    </div>
+    <!-- Classie -->
+    <!-- Classie -->
+    <!-- Classie -->
+    {%include "UI/Accountant/footer.html"%}
+</html>

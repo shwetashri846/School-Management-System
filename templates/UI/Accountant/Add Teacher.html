@@ -1,0 +1,471 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	{%include "UI/Faculty/head.html"%}
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{%include "UI/Accountant/sidebar.html"%}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{%include "UI/Accountant/header.html"%}
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				
+
+				
+    <!----					<div class="row">
+						<div class="col-md-1">
+						</div>
+							<div class="col-md-10">
+								<div class="row">
+									<div class="col-md-2">
+										<b>School Name</b>
+
+									</div>
+									<div class="col-md-10">
+										<select class="form-control">
+											<option value="Infoera Software Services Pvt Ltd" >Select School</option>
+											<option value="Infoera Software Services Pvt Ltd">Infoera Software Services Pvt Ltd</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+						<div class="col-md-1">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12" style="background-color:white">
+							<b><h3 style="color:blue;">Basic Information</h3></b>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<b>Name</b>
+							<br>
+							<input type="text" id="name"name="name"class="form-control" placeholder="Name">
+						</div>
+						<div class="col-md-3">
+							<b>National ID</b>
+							<br>
+							<input type="text" id="nationalid"name="nationalid"class="form-control" placeholder="National ID">
+						</div>
+						<div class="col-md-3">
+							<b>Phone</b>
+							<br>
+							<input type="text" id="phone"name="phone"class="form-control" placeholder="Phone">
+						</div>
+
+						<div class="col-md-3">
+							<b>Gender</b>
+							<select class="form-control">
+								<option value="male">male</option>
+								<option value="female">female</option>
+							</select>
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<b>Birth Date</b>
+							<br>
+							<input type="date" id="birthdate"name="birthdate"class="form-control" placeholder="Birth Date">
+						</div>
+						<div class="col-md-3">
+							<b>Joining Date</b>
+							<br>
+							<input type="date" id="joiningdate"name="joiningdate"class="form-control" placeholder="Joinind Date">
+						</div>
+						<div class="col-md-3">
+							<b>Father Name</b>
+							<br>
+							<input type="text" id="fathername"name="fathername"class="form-control" placeholder="Father Name">
+						</div>
+
+						<div class="col-md-3">
+							<b>Aadhar No</b>
+							<input type="text" id="aadharno" name="aadharno" class="form-control" placeholder="Aadhar Number">
+						</div>
+
+					</div>
+					<div class="row">
+						<div class= "col-md-6">
+							<b>Present Address<b>
+								<br>
+								<textarea type="text" rows="6" id="presentaddress" name="presentaddress" class="form-control" placeholder="Present Address" >
+								</textarea>
+						</div>
+						<div class= "col-md-6">
+							<b>Present Address<b>
+								<br>
+								<textarea type="text" rows="6" id="presentaddress" name="presentaddress" class="form-control" placeholder="Present Address" >
+								</textarea>
+						</div>	
+							
+						
+					</div>-->			
+						
+				
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+				<div class="row">
+					<!-- <p>
+						{% with messages = get_flashed_messages() %}
+						{% if messages %}
+						<ul>
+							{% for message in messages %}
+							<li>{{ message }}</li>
+							{% endfor %}
+						</ul>
+						{% endif %}
+						{% endwith %}
+					</p> -->
+					<center><h1>{{msg}}</h1></center>
+					<h3 class="title1"><u><b><center>Teacher Details<center></b></u></h3>
+					<div class="form-three widget-shadow">
+						<form class="form-horizontal" action="/UI/Accountant/addteacher" method="post" enctype="multipart/form-data">
+							<div class="row">
+								<p>
+									{% with messages = get_flashed_messages() %}
+									{% if messages %}
+									<ul>
+										{% for message in messages %}
+										<li>{{ message }}</li>
+										{% endfor %}
+									</ul>
+									{% endif %}
+									{% endwith %}
+								</p>
+								<div class="col-md-1">
+								</div>
+									<div class="col-md-10">
+										
+									</div>
+		
+								<div class="col-md-1">
+								</div>
+							</div>
+		
+							<div class="row">
+								<div class="col-md-12" style="background-color:grey">
+									<b><h1 style="color:white;">Basic Information:</h1></b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Name</b>
+									<br>
+									<input type="text" id="name"name="name"class="form-control" placeholder="Name">
+								</div>
+								<div class="col-md-3">
+									<b>National ID</b>
+									<br>
+									<input type="text" id="nationalid"name="nationalid"class="form-control" placeholder="National ID">
+								</div>
+								<div class="col-md-3">
+									<b>Phone</b>
+									<br>
+									<input type="text" id="phone"name="phone"class="form-control" placeholder="Phone">
+								</div>
+		
+								<div class="col-md-3">
+									<b>Gender</b>
+									<select class="form-control" id="gender" name="gender">
+										<option value="male">male</option>
+										<option value="female">female</option>
+									</select>
+								</div>
+		
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Birth Date</b>
+									<br>
+									<input type="date" id="birthdate"name="birthdate"class="form-control" placeholder="Birth Date">
+								</div>
+								<div class="col-md-3">
+									<b>Joining Date</b>
+									<br>
+									<input type="date" id="joiningdate"name="joiningdate"class="form-control" placeholder="Joinind Date">
+								</div>
+								<div class="col-md-3">
+									<b>Father Name</b>
+									<br>
+									<input type="text" id="fathername"name="fathername"class="form-control" placeholder="Father Name">
+								</div>
+		
+								<div class="col-md-3">
+									<b>Aadhar No</b>
+									<input type="text" id="aadharno" name="aadharno" class="form-control" placeholder="Aadhar Number">
+								</div>
+		
+							</div>
+							<div class="row">
+								<div class= "col-md-5">
+									<b>Present Address<b>
+										<br>
+										<textarea type="text" rows="6" id="presentaddress" name="presentaddress" class="form-control" placeholder="Present Address" >
+											
+										</textarea>
+										
+								</div>
+								<div class="col-md-1">
+									<b>Same<b>
+										<br>
+								        <center><input type="checkbox" value="copy" onClick="copy();" /></center>
+								</div>
+								
+								<div class= "col-md-5">
+									<b>Permanent Address<b>
+										<br>
+										<textarea type="text" rows="6" id="permanentaddress" name="permanentaddress" class="form-control" placeholder="Permanent Address" >
+										</textarea>
+								</div>	
+									
+								
+							</div>    
+							<div class="row">
+								<div class="col-md-12" style="background-color:grey">
+									<b><h1 style="color:white;">Academic Information:</h1></b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<b>Qualification</b>
+									<br>
+									<input type="text" id="qualification" name="qualification" class="form-control" placeholder="Qualification">
+								</div>
+								<div class="col-md-4">
+									<b>Class</b>
+									<br>
+									<select name="class" data-live-search="true" id="add_class" class="form-control">
+											{% for row in add_class %}
+											<option value="{{row.class}}">{{row.class}}</option>
+											{% endfor %}
+										</select>
+								</div>
+								<div class="col-md-4">
+									<b>Subject</b>
+									<br>
+									<select name="subject" data-live-search="true" id="subject" class="form-control">
+											{% for row in addsubject %}
+											<option value="{{row.subject}}">{{row.subject}}</option>
+											{% endfor %}
+										</select>
+								</div>
+
+
+							</div>
+							<div class="row">
+								<div class="col-md-12" style="background-color:grey">
+									<b><h1 style="color:white;">Other Information:</h1></b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Email ID </b>
+									<br>
+									<input type="email" id="email" name="email" class="form-control" placeholder="Email ID">
+
+										
+								</div>
+								<div class="col-md-3">
+									<b>Username </b>
+									<br>
+									<input type="text" id="username" name="username" class="form-control" placeholder="Username">
+
+										
+								</div>
+								<div class="col-md-3">
+									<b>Password </b>
+									<br>
+									<input type="password" id="password" name="password" class="form-control" placeholder="Password">
+
+										
+								</div>
+								<div class="col-md-3">
+								    <b>Designation</b>
+								    <br>
+									<input type="text" id="designation" name="designation" class="form-control" placeholder="Designation">
+								    
+								</div>
+								<div class="col-md-3">
+								    <b>Y.O.E</b>
+								    <br>
+									<input type="text" id="yearofexperience" name="yearofexperience" class="form-control" placeholder="Year Of Experience">
+								    
+								</div>
+								
+								<br>
+								
+							
+                                <dl>
+								<div class="col-md-6">
+									<label>Photo</label> 
+									<br>
+									
+
+									<input type="file" name="files1[]" id="fileInput1" class="form-control" multiple>
+
+										
+								</div>
+								</dl>
+								
+
+
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-md-2">
+									<div class="form-group">
+									 
+									 
+										<input type="submit" name="submit" class="btn btn-primary" value="UPLOAD"/>
+		 
+		 
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+									 
+									 
+										<button type="button" class="btn btn-default" >Close</button>
+		 
+		 
+									</div>
+								</div>
+									 
+
+									 
+
+							</div>
+
+                            <script>
+								$(document).ready(function(){
+								 // File type validation
+									$("#fileInput1").change(function(){
+										var fileLength = this.files1.length;
+										var match= ["image/jpeg","image/png","image/jpg","image/gif"];
+										var i;
+										for(i = 0; i < fileLength; i++){ 
+											var file = this.files1[i];
+											var imagefile = file.type;
+											if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]) || (imagefile==match[3]))){
+												alert('Please select a valid image file (JPEG/JPG/PNG/GIF).');
+												$("#fileInput1").val('');
+												return false;
+											}
+										}
+									});
+								});
+							</script>
+
+							<script type="text/javascript">
+								function copy()
+								{
+									var presentaddress = document.getElementById("presentaddress");
+									var permanentaddress = document.getElementById("permanentaddress");
+									permanentaddress.value = presentaddress.value;
+								}
+							</script>
+
+
+
+						
+
+
+						
+									
+									
+
+
+
+
+
+										
+									
+								
+
+						 
+
+								
+								
+								
+								
+						  
+							
+							
+							
+
+							
+							
+							
+							
+						</form>
+
+
+
+						<div class="row">
+							<div class="col-md-3">
+								&nbsp;
+							</div>
+							
+					</div>
+					<div class="col-md-3">
+						&nbsp;
+					</div>
+				</div>
+            </div>
+        </div>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+	<div class="cal1" style="visibility:hidden">
+						
+	</div>
+		
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+</div>
+<!-- Classie -->
+	<!-- Classie -->
+	<!-- Classie -->
+	{%include "UI/Faculty/footer.html"%}
+</html>

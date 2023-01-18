@@ -1,0 +1,440 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SMS</title>
+{%include "UI/student/head.html"%}
+
+
+
+
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{%include "UI/Accountant/sidebar.html"%}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{%include "UI/Accountant/header.html"%}
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				<div class="row">
+					<!-- <p>
+						{% with messages = get_flashed_messages() %}
+						{% if messages %}
+						<ul>
+							{% for message in messages %}
+							<li>{{ message }}</li>
+							{% endfor %}
+						</ul>
+						{% endif %}
+						{% endwith %}
+					</p> -->
+					<!-- <center><h1>{{msg}}</h1></center> -->
+					<h3 class="title1"><u><b><center>Student Details<center></b></u></h3>
+					<div class="form-three widget-shadow">
+						<form class="form-horizontal" action="/UI/Accountant/studentdetails" method="post" enctype="multipart/form-data">
+							<div class="row">
+								<p>
+									{% with messages = get_flashed_messages() %}
+									{% if messages %}
+									<ul>
+										{% for message in messages %}
+										<li>{{ message }}</li>
+										{% endfor %}
+									</ul>
+									{% endif %}
+									{% endwith %}
+								</p>
+								{% if filename %}
+								<div>
+									<img src="{{ url_for('display_image', filename=filename) }}">
+								</div>
+								{% endif %}
+								<div class="col-md-1">
+								</div>
+									<div class="col-md-10">
+										
+									</div>
+		
+								<div class="col-md-1">
+								</div>
+							</div>
+		
+							<div class="row">
+								<div class="col-md-12" style="background-color:grey">
+									<b><h1 style="color:white;">Basic Information:</h1></b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Name</b>
+									<br>
+									<input type="text" id="name"name="name"class="form-control" placeholder="Name">
+								</div>
+								<div class="col-md-3">
+									<b>Father Name</b>
+									<br>
+									<input type="text" id="fathername"name="fathername"class="form-control" placeholder="Father Name">
+								</div>
+								<div class="col-md-3">
+									<b>Mother Name</b>
+									<br>
+									<input type="text" id="mothername"name="mothername"class="form-control" placeholder="Mother Name">
+								</div>
+		
+								<div class="col-md-3">
+									<b>Admission No</b>
+									<br>
+									<input type="text" id="addmission"name="addmission"class="form-control" placeholder="Admission No">
+								</div>
+		
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Admission Date</b>
+									<br>
+									<input type="date" id="admissiondate"name="admissiondate"class="form-control" placeholder="Admission Date">
+								</div>
+								<div class="col-md-3">
+									<b>Birth Date</b>
+									<br>
+									<input type="date" id="birthdate"name="birthdate"class="form-control" placeholder="Birth Date">
+								</div>
+								<div class="col-md-3">
+									<b>Gender</b>
+									<br>
+									<select class="form-control" id="gender" name="gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+								</div>
+		
+								<div class="col-md-3">
+									<b>Aadhar Number</b>
+									<input type="text" id="aadharno" name="aadharno" class="form-control" placeholder="Aadhar Number">
+								</div>
+		
+							</div>
+							<div class="row">
+								<div class= "col-md-3">
+									<b>Religion<b>
+										<br>
+										<select class="form-control" id="religion" name="religion">
+                                            <option value="Hindu">Hindu</option>
+                                            <option value="Muslim">Muslim</option>
+                                            <option value="Sikh">Sikh</option>
+                                            <option value="Christian">Christian</option>
+                                            <option value="Bengali">Bengali</option>
+                                            <option value="other religions">Other Religions</option>
+                                            
+                                        </select>
+								</div>
+                                <div class= "col-md-3">
+                                    <b>Caste<b>
+                                        <br>
+                                        <select class="form-control" id="caste" name="caste">
+                                        <option value="General">General</option>
+                                        <option value="OBC">OBC</option>
+                                        <option value="SC">SC</option>
+                                        <option value="ST">Christian</option>
+                                        <option value="Other">Other</option>
+                                                
+                                                
+                                        </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <b>House Name</b>
+                                    <input type="text" id="housename" name="housename" class="form-control" placeholder="House Name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <b>Phone</b>
+                                    <br>
+                                    <input type="text" id="phone" name="phone"class="form-control" placeholder="Phone">
+                                </div>
+                                <div class="col-md-3">
+                                    <b>Email</b>
+                                    <br>
+                                    <input type="email" id="email" name="email"class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+							<div class="row">
+								<div class="col-md-12" style="background-color:grey">
+									<b><h1 style="color:white;">Academic Information:</h1></b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Class</b>
+									<br>
+									<select name="class" data-live-search="true" id="add_class"    class="form-control" > 
+										{% for row in add_class %}
+										<option value="{{row.class}}">{{row.class}}</option>
+										{% endfor %}
+									</select>
+                                    
+								</div>
+                                
+                                <div class="col-md-3">
+									<b>Section</b>
+									<br>
+									<select name="add_section" data-live-search="true" id="add_section"class="form-control" > 
+										{% for row in new_section %}
+										<option value="{{row.add_section}}">{{row.add_section}}</option>
+										{% endfor %}
+									</select>
+									
+                                    
+									
+								</div>
+                                <div class="col-md-3">
+									<b>Stream</b>
+									<br>
+									<select name="stream" data-live-search="true" id="stream"    class="form-control"> 
+										{% for row in stream %}
+										<option value="{{row.stream}}">{{row.stream}}</option>
+										{% endfor %}
+									</select>
+                                    
+								</div>
+								<div class="col-md-3">
+                                    <b>Roll No</b>
+                                    <br>
+                                    <input type="text" id="rollno" name="rollno"class="form-control" placeholder="Roll No">
+                                </div>
+                                
+                                
+                                
+
+
+							</div>
+                            <div class="row">
+                                
+                                <div class="col-md-3">
+                                    <b>Fee Excused</b>
+                                    <br>
+                                    <input type="text" id="feeexcused" name="feeexcused"class="form-control" placeholder="Fee Excused">
+                                </div>
+								<div class="col-md-3">
+									<b>Session</b>
+									<br>
+									<select name="add_session" data-live-search="true" id="add_session"    class="form-control" > 
+										{% for row in add_session %}
+										<option value="{{row.add_session}}">{{row.add_session}}</option>
+										{% endfor %}
+									</select>
+									
+								</div>
+                            </div>
+							
+                            <div class="row">
+								<div class="col-md-12" style="background-color:grey">
+									<b><h1 style="color:white;">Address Information:</h1></b>
+								</div>
+							</div>
+                            <div class="row">
+								<div class= "col-md-5">
+									<b>Present Address<b>
+										<br>
+										<textarea type="text" rows="6" id="presentaddress" name="presentaddress" class="form-control" placeholder="Present Address" >
+											
+										</textarea>
+										
+								</div>
+								<div class="col-md-1">
+									<b>Same<b>
+										<br>
+								        <center><input type="checkbox" value="copy" onClick="copy();" /></center>
+								</div>
+								
+								<div class= "col-md-5">
+									<b>Permanent Address<b>
+										<br>
+										<textarea type="text" rows="6" id="permanentaddress" name="permanentaddress" class="form-control" placeholder="Permanent Address" >
+										</textarea>
+								</div>	
+									
+								
+							</div>    
+							<div class="row">
+								<div class="col-md-12" style="background-color:grey">
+									<b><h1 style="color:white;">Other Information:</h1></b>
+								</div>
+							</div>
+							<div class="row">
+								
+								<div class="col-md-3">
+									<b>Username </b>
+									<br>
+									<input type="text" id="username" name="username" class="form-control" placeholder="Username">
+
+										
+								</div>
+								<div class="col-md-3">
+									<b>Password </b>
+									<br>
+									<input type="password" id="password" name="password" class="form-control" placeholder="Password">
+
+										
+								</div>
+
+								
+								<!-- <br> -->
+								
+							
+                                <dl>
+								<div class="col-md-6">
+									<label>Photo</label> 
+									
+									
+
+									<input type="file" name="files1[]" id="fileInput1" class="form-control" multiple>
+
+										
+								</div>
+								</dl>
+								
+
+
+							</div>
+							<hr>
+							
+							<!-- <button type="button"><a href="/UI/Accountant/addfeereport">Next</button></a> -->
+							<div class="row">
+								<div class="col-md-2">
+									<div class="form-group">
+										<input type="submit" name="submit" class="btn btn-primary" value="UPLOAD"/>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+									 
+									 
+										<a href="/UI/Accountant/generatefee" class="btn btn-primary">Next</a>
+		 
+		 
+									</div>
+								</div>
+									 
+
+									 
+
+							</div>
+
+                            <script>
+								$(document).ready(function(){
+								 // File type validation
+									$("#fileInput1").change(function(){
+										var fileLength = this.files1.length;
+										var match= ["image/jpeg","image/png","image/jpg","image/gif"];
+										var i;
+										for(i = 0; i < fileLength; i++){ 
+											var file = this.files1[i];
+											var imagefile = file.type;
+											if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]) || (imagefile==match[3]))){
+												alert('Please select a valid image file (JPEG/JPG/PNG/GIF).');
+												$("#fileInput1").val('');
+												return false;
+											}
+										}
+									});
+								});
+							</script>
+							<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+					        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+					        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+							<script>
+								$(document).ready(function () {
+									$("#class").selectpicker();
+									$("#add_section").selectpicker();
+									$("#stream").selectpicker();
+								});
+							</script> -->
+
+							<script type="text/javascript">
+								function copy()
+								{
+									var presentaddress = document.getElementById("presentaddress");
+									var permanentaddress = document.getElementById("permanentaddress");
+									permanentaddress.value = presentaddress.value;
+								}
+							</script>
+
+
+
+						
+
+
+						
+									
+									
+
+
+
+
+
+										
+									
+								
+
+						 
+
+								
+								
+								
+								
+						  
+							
+							
+							
+
+							
+							
+							
+							
+						</form>
+
+
+
+						<div class="row">
+							<div class="col-md-3">
+								&nbsp;
+							</div>
+							
+					</div>
+					<div class="col-md-3">
+						&nbsp;
+					</div>
+				</div>
+            </div>
+        </div>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+	<div class="cal1" style="visibility:hidden">
+						
+	</div>
+		
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+</div>
+<!-- Classie -->
+	<!-- Classie -->
+	<!-- Classie -->
+	{%include "UI/student/footer.html"%}
+</html>

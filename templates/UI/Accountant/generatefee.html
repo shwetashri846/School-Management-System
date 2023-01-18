@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SMS</title>
+{%include "UI/student/head.html"%}
+
+
+
+
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{%include "UI/Accountant/sidebar.html"%}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{%include "UI/Accountant/header.html"%}
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				<div class="row">
+					<!-- <p>
+						{% with messages = get_flashed_messages() %}
+						{% if messages %}
+						<ul>
+							{% for message in messages %}
+							<li>{{ message }}</li>
+							{% endfor %}
+						</ul>
+						{% endif %}
+						{% endwith %}
+					</p> -->
+					<!-- <center><h1>{{msg}}</h1></center> -->
+					<h3 class="title1"><u><b><center>Generate Fee<center></b></u></h3>
+					<div class="form-three widget-shadow">
+						<form    name=form1  class="form-horizontal" action="/UI/Accountant/generatefee" method="post">
+							<div class="row">
+								<p>
+									{% with messages = get_flashed_messages() %}
+									{% if messages %}
+									<ul>
+										{% for message in messages %}
+										<li>{{ message }}</li>
+										{% endfor %}
+									</ul>
+									{% endif %}
+									{% endwith %}
+								</p>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <b>Session</b>
+                                        <select name="add_session" id="add_session" class="form-control">
+                                            {%for row in add_session%}
+                                            <option value="{{row.add_session}}">{{row.add_session}}</option>
+                                            {%endfor%}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <b>Section</b>
+                                        <select name="add_section" id="add_section" class="form-control">
+                                            {%for row in new_section%}
+                                            <option value="{{row.add_section}}">{{row.add_section}}</option>
+                                            {%endfor%}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <b>Class</b>
+                                        <select name="class" id="add_class" class="form-control">
+                                            {%for row in add_class%}
+                                            <option value="{{row.class}}">{{row.class}}</option>
+                                            {%endfor%}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <b>Roll No</b>
+                                        <select name="rollno" id="rollno" class="form-control">
+                                            {%for row in studentreport%}
+                                            <option value="{{row.rollno}}">{{row.rollno}}</option>
+                                            {%endfor%}
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-4">
+                                        <b>Date</b>
+                                        <select name="admissiondate" id="admissiondate" class="form-control">
+                                            {%for row in studentreport%}
+                                            <option value="{{row.admissiondate}}">{{row.admissiondate}}</option>
+                                            {%endfor%}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <br>
+                                        
+                                        <input  type="submit"name="submit" id="submit" class="btn btn-primary" value="search">
+                                            
+                                        
+                                    </div>
+                                    <br>
+                                    <!-- <div class="row">
+                                        <div class="col-md-4">
+                                            <br>
+                                            <b>Name</b>
+                                            <br>
+                                            <select name="name" id="name" class="form-control">
+                                                {%for row in studentreport%}
+                                                <option value="{{row.name}}">{{row.name}}</option>
+                                                {%endfor%}
+                                            </select> 
+                                            
+                                        </div>
+                                        <div class="col-md-4">
+                                            <br>
+                                            <b>Feetitle</b>
+                                            <br>
+                                            
+                                            <input type="text" id="feetitle" name="feetitle" class="form-control" >
+                                        </div> 
+                                        <div class="col-md-4">
+                                            <br>
+                                            <b>Category</b>
+                                            <br>
+
+                                            <input type="text" id="category" name="category" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div> --> 
+
+<!-- 
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        &nbsp;
+                                    </div>
+                                    <div class="col-md-12 table-responsive text-nowrap">
+                                        <table id="data" class="table table-striped" style="background-color:#888ad09c;">
+        
+                                            <!-Table head->
+                                            <thead style="background-color:#4f52ba;">
+                                                <tr style="color:white;">
+                                                  <th>Sl.No</th>
+                                                  <th>FEETITLE</th>
+                                                  <th>CATEGORY</th>
+                                                  <th>CLASS</th>
+                                                  <th>FEE AMOUNT</th>
+                                                  <th>CHECKBOX</th>
+                                                  
+                                                  
+                                                </tr>
+                                            </thead>
+                                              <!-Table head-->
+                                    
+                                              <!--Table body->
+                                           
+                                              <tbody>
+                                                  {% for row in addfeeamount %}
+                                                      <tr>
+                                                          <td>{{ row.0 }}</td>
+                                                          <td>{{ row.1 }}</td>
+                                                          <td>{{row.2}}</td>
+                                                          <td>{{row.3}}</td>
+                                                          <td>{{row.4}}</td>
+                                                          <td>
+                                                            <input type="checkbox"  name="ckb"   value="{{row.4}}" onclick='chkcontrol(4)';>
+                                                           </td>
+                                                           
+                                                      </tr>
+                                                   {% endfor  %}
+                                               </tbody>
+                                        </table>
+                                    </div>
+                                    <script type="text/javascript"> 
+                                    function chkcontrol(j) {
+                                    var sum=0;
+                                    for(var i=0; i < document.form1.ckb.length; i++){
+                                    
+                                    if(document.form1.ckb[i].checked){
+                                    sum = sum + parseInt(document.form1.ckb[i].value);
+                                    }
+                                    document.getElementById("msg").innerHTML=+ sum;
+                                    
+                                    if(sum >1200){
+                                    sum = sum - parseInt(document.form1.ckb[j].value);
+                                    document.form1.ckb[j].checked = false ;
+                                    // alert("Sum of the selection can't be more than 1200") 
+                                    //return false;
+                                    }
+                                    document.getElementById("msg").innerHTML=+ sum;
+                                    }
+                                    }
+                                    </script>
+                                    <div class="row" style="margin-top:-10px;">
+                                    <div class="col-md-4">
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-4" >
+    
+                                                <p>Total :</p>&nbsp;
+                                                <p>Discount:</p>
+                                                &nbsp;
+                                                <p>Final Total:</p>
+                                                
+                                            </div>
+                                            <div class="col-md-4">
+                                                
+                                               <div id=msg style="background-color:coral;"></div>
+                                              
+                                                &nbsp;
+                                                <input type="text" name="discount" id="discount" onchange="abc()">
+                                                &nbsp;
+                                                <!- <button onclick="getPrice()">Get total</button>&nbsp; ->
+                                                <input type="text" readonly   id="total"  name="total">
+                                                <br><br>
+                                                
+                                                <input type="submit" class="btn btn-primary" name="submit1"  id="submit1"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                     function abc()
+                                     {
+                                        var numVal1 = Number(document.getElementById("msg").innerText);  
+                                        var numVal2 = Number(document.getElementById("discount").value);
+                                        var totalvalue = numVal1 -  numVal2;
+                                        total.value = totalvalue;
+                                        //document.getElementById("total").value = totalValue;
+                                        return 0;
+                                        }
+                                    </script>
+                                    
+                                    
+                                </div> -->
+								
+								
+									
+		
+							</div>
+		
+							
+							
+								
+		
+		
+								
+							
+							
+								
+								
+								
+                               
+										
+								
+
+
+							
+							
+								
+									 
+
+
+                            <!-- <script>
+								$(document).ready(function(){
+								 // File type validation
+									$("#fileInput1").change(function(){
+										var fileLength = this.files1.length;
+										var match= ["image/jpeg","image/png","image/jpg","image/gif"];
+										var i;
+										for(i = 0; i < fileLength; i++){ 
+											var file = this.files1[i];
+											var imagefile = file.type;
+											if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]) || (imagefile==match[3]))){
+												alert('Please select a valid image file (JPEG/JPG/PNG/GIF).');
+												$("#fileInput1").val('');
+												return false;
+											}
+										}
+									});
+								});
+							</script> -->
+							<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+					        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+					        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+							<script>
+								$(document).ready(function () {
+									$("#class").selectpicker();
+									$("#add_section").selectpicker();
+									$("#stream").selectpicker();
+								});
+							</script> -->
+
+							<!-- <script type="text/javascript">
+								function copy()
+								{
+									var presentaddress = document.getElementById("presentaddress");
+									var permanentaddress = document.getElementById("permanentaddress");
+									permanentaddress.value = presentaddress.value;
+								}
+							</script> -->
+
+
+
+						
+
+
+						
+									
+									
+
+
+
+
+
+										
+									
+								
+
+						 
+
+								
+								
+								
+								
+						  
+							
+							
+							
+
+							
+							
+							
+							
+						</form>
+
+
+
+						<div class="row">
+							<div class="col-md-3">
+								&nbsp;
+							</div>
+							
+					</div>
+					<div class="col-md-3">
+						&nbsp;
+					</div>
+				</div>
+            </div>
+        </div>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+	<div class="cal1" style="visibility:hidden">
+						
+	</div>
+		
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+</div>
+<!-- Classie -->
+	<!-- Classie -->
+	<!-- Classie -->
+	{%include "UI/student/footer.html"%}
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SMS</title>
+{%include "UI/student/head.html"%}
+
+
+
+
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{%include "UI/Accountant/sidebar.html"%}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{%include "UI/Accountant/header.html"%}
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				<div class="row">
+					<!-- <p>
+						{% with messages = get_flashed_messages() %}
+						{% if messages %}
+						<ul>
+							{% for message in messages %}
+							<li>{{ message }}</li>
+							{% endfor %}
+						</ul>
+						{% endif %}
+						{% endwith %}
+					</p> -->
+					<!-- <center><h1>{{msg}}</h1></center> -->
+                    
+					<h3 class="title1"><u><b><center>Monthly Fee Bill<center></b></u></h3>
+					<div class="form-three widget-shadow">
+						<form class="form-horizontal" action="/UI/Accountant/monthlyfeebill" method="post" enctype="multipart/form-data">
+							<div class="row">
+								<p>
+									{% with messages = get_flashed_messages() %}
+									{% if messages %}
+									<ul>
+										{% for message in messages %}
+										<li>{{ message }}</li>
+										{% endfor %}
+									</ul>
+									{% endif %}
+									{% endwith %}
+								</p>
+								<div class="col-md-1">
+								</div>
+									<div class="col-md-10">
+										
+									</div>
+		
+								<div class="col-md-1">
+								</div>
+                                <center><table width="100%" >
+                                    <tr >
+                                        <td width="30%">
+
+                                        </td>
+                                        <td width="30%">
+                                           
+                                        </td>
+                                        <td width="30%">
+                                            <i class="fa fa-print" style="color:red;">print</i>
+                                        </td>
+                                        
+
+                                    </tr>
+                                    <tr style="height: 20px;"></tr>
+                                    
+                                        <tr >
+                                            <td width="30%">
+                                                <img src="../../static/images/schoollogo.png" style="height:200px;">
+                                            </td>
+                                            <td width="30%" >
+                                                <h4 >SCHOOL MANAGEMENT SYSTEM</h4>
+
+                                            </td>
+                                            <td width="30%">
+                                                <h5>Mobile No: 6206305526</h5><br>
+                                                <h5>Email Id: shweta@gmail.com</h5><br>
+                                                <h5>Address: Patliputra Patna,Bihar,India,800001</h5>
+
+                                            </td>
+
+                                        </tr>
+                                    
+                                </table></center><br>
+                               
+                                <center><table width="100%" border="0" >
+                                    
+                                    
+                                    <tr >
+                                        <td width="30%">
+                                            
+                                            <input type="text" name="name" id="name" placeholder="name" class="form-control" >
+                                        </td>
+                                        <td width="20%" >
+                                            
+                                            <input type="text" name="rollno" id="rollno" placeholder="Roll No" class="form-control"  >
+                                        </td>
+                                        <td width="20%">
+
+                                            <input type="text" name="class" id="add_class" placeholder="Class" class="form-control" >
+
+                                        </td>
+
+                                    </tr>
+                                    <tr style="height: 20px;"></tr>
+                                    <tr >
+                                            <td width="20%" >
+                                                
+                                                <input type="text" name="add_section" id="add_section" placeholder="Section" class="form-control" >
+                                            </td>
+                                            <td width="30%">
+                                               
+                                                <input type="text" name="add_session" id="add_session" placeholder="Session"class="form-control" >
+                                            </td>
+                                            
+                                            <td width="20%">
+                                                
+                                                <input type="text" name="date" id="date" placeholder="date" class="form-control" >
+    
+                                            </td>
+    
+                                    </tr>
+                                    <tr style="height: 20px;"></tr>
+                                    <tr >
+                                            <td width="30%">
+                                               
+                                                <input type="text" name="feetitle" id="feetitle" placeholder="Feetitle"class="form-control" >
+                                            </td>
+                                            <td width="30%" >
+                                                
+                                                <input type="text" name="category" id="category" placeholder="Category" class="form-control" >
+                                            </td>
+                                            
+                                    </tr>
+                                    <tr style="height: 20px;"></tr>
+                                    <tr >
+                                            <td width="30%">
+                                                
+                                                <input type="text" name="actualfee" id="actualfee" placeholder="Actualfee"class="form-control">
+                                            </td>
+                                            <td width="30%" >
+                                                
+                                                <input type="text" name="discount" id="discount" placeholder="Discount" class="form-control" >
+                                            </td>
+                                            <td width="30%" >
+                                                
+                                                <input type="text" name="total" id="total" placeholder="Total" class="form-control" >
+                                            </td>
+                                            
+                                    </tr>
+                                    
+                                    
+                                    
+                                
+    
+                                
+                                </table></center>
+                                
+                                
+                                 
+    
+                                
+                                     
+		
+							
+							
+								
+		
+							
+							
+							
+
+							
+							    
+							
+							
+							
+							
+									 
+
+									 
+
+							
+
+                            
+							
+							
+
+
+
+						
+
+
+						
+									
+									
+
+
+
+
+
+										
+									
+								
+
+						 
+
+								
+								
+								
+								
+						  
+							
+							
+							
+
+							
+							
+							
+							
+						</form>
+
+
+
+						<div class="row">
+							<div class="col-md-3">
+								&nbsp;
+							</div>
+							
+					</div>
+                    
+					<div class="col-md-3">
+						&nbsp;
+					</div>
+				</div>
+            </div>
+        </div>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+	<div class="cal1" style="visibility:hidden">
+						
+	</div>
+		
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+</div>
+<!-- Classie -->
+	<!-- Classie -->
+	<!-- Classie -->
+	{%include "UI/student/footer.html"%}
+</html>
