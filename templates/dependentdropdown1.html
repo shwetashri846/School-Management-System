@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dependent Dropdown with Search Box using Python Flask jQuery, Ajax, and MySQLdb Database</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css" />
+    </head>
+    <body>
+        <form action="/depdrpdemo1" methods="POST">
+        <div class="container">
+            <h1 align="center">Dependent Dropdown with Search Box using Python Flask jQuery, Ajax, and MySQLdb Database</h1>       
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Select name</label>
+                    <select name="feetitle" data-live-search="true" id="feetitle" class="form-control" title="Select Car Brand"> 
+                    {% for row in addfeetitle %}
+                    <option value="{{row.feetitle_id}}">{{row.feetitle}}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label>Select Subject</label>
+                    <select name="category" data-live-search="true" id="category" class="form-control" title="Select Car Model"> </select>
+                </div>
+            </div>
+        </form>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#feetitle").selectpicker();
+   
+                $("#category").selectpicker();
+   
+                function load_data(type, category_id) {
+                    $.ajax({
+                        url: "/addfeetitle",
+                        method: "POST",
+                        data: { type: type, category_id: category_id },
+                        dataType: "json",
+                        success: function (data) { //alert(category_id)
+                            var html = "";
+                            for (var count = 0; count < data.length; count++) {
+                                html += '<option value="' + data[count].id + '">' + data[count].name + "</option>";
+                            }
+                            if (type == "kkData") {
+                                $("#feetitle").html(html);
+                                $("#feetitle").selectpicker("refresh");
+                            } else {
+                                $("#category").html(html);
+                                $("#category").selectpicker("refresh");
+                            }
+                        },
+                    });
+                }
+   
+                $(document).on("change", "#feetitle", function () {
+                    var category_id = $("#feetitle").val();
+                    load_data("ghfdata", category_id);
+                });
+            });
+        </script>
+        <div class="row">
+            <div class="col-md-3">
+                &nbsp;
+            </div>
+            <div class="col-md-6 table-responsive text-nowrap">
+                <table id="data" class="table table-striped">
+
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                          <th>Sl.No</th>
+                          <th>Feetitle</th>
+                          <th>Category</th>
+                          <th>Class</th>
+                          <th>Fee Amount</th>
+                          
+                          
+                        </tr>
+                      </thead>
+                      <!--Table head-->
+            
+                      <!--Table body-->
+                   
+                      <tbody>
+                          {% for row in addfeeclass  %}
+                              <tr>
+                                  <td>{{ row.0 }}</td>
+                                  <td>{{ row.1 }}</td>
+                                  <td>{{ row.2 }}</td>
+                                  <td>{{ row.3 }}</td>
+                                  <td>{{ row.4 }}</td>
+                                  
+                            </tr>
+                            <!-- <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Update Class</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/update" method="POST">
+                                                <div class="form-group">
+                                                    <label>Add Class:</label>
+                                                    <input type="hidden"  name="id" value="{{row.0}}">
+                                                    <input type="text" class="form-control" name="class"id="class" value="{{row.1}}">
+                     
+                     
+                                                </div>
+                                                <div class="form-group">
+                     
+                     
+                                                    <button class="btn btn-primary" type="sbumit">Update</button>
+                     
+                     
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        {% endfor  %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
