@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    {%include "UI/Admin/head.html" %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css" />
+</head>
+
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+        <!--left-fixed -navigation-->
+        {%include "UI/Admin/sidebar.html"%}
+        <!--left-fixed -navigation-->
+        <!-- header-starts -->
+        {%include "UI/Admin/header2.html"%}
+        <!-- //header-ends -->
+        <!----main content-->
+        <div id="page-wrapper">
+            <div class="main-page">
+                <!-- <div class="row-one"> -->
+
+
+
+
+                <div class="row">
+
+                    <h3 class="title1"><u><b>
+                                <center>Add Routine<center>
+                            </b></u></h3>
+
+                    <div class="form-three widget-shadow">
+                        <form class="form-horizontal" action="/UI/Admin/routinetest" method="post">
+                            <div class="row">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-10">
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <b>Class</b>
+
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select name="class" data-live-search="true" id="add_class"
+                                                class="form-control">
+                                                {% for row in add_class %}
+                                                <option value="{{row.class}}">{{row.class}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        &nbsp;
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <b>Subject</b>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <select name="subject" data-live-search="true" id="subject"
+                                                    class="form-control">
+                                                    {% for row in addsubject %}
+                                                    <option value="{{row.subject}}">{{row.subject}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            &nbsp;
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <b>Add Section</b>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <select name="add_section" data-live-search="true" id="add_section"
+                                                        class="form-control">
+                                                        {% for row in new_section %}
+                                                        <option value="{{row.add_section}}">{{row.add_section}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                &nbsp;
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <b>Teacher Name</b>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <select name="name" data-live-search="true" id="name" class="form-control">
+                                                            
+                                                            {% for row in addteacher %}
+                                                            <option value="{{row.id}}">{{row.name}}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                        <br>
+
+
+
+
+                                                    </div>
+
+                                                    &nbsp;
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <b> National Id</b>
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <select name="nationalid" data-live-search="true" id="nationalid" class="form-control"> 
+
+                                                            </select>
+
+
+
+
+                                                        </div>
+
+                                                    </div>
+                                                    &nbsp;
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <b> To Time</b>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <select name="time" data-live-search="true" id="time"
+                                                                class="form-control">
+                                                                {% for row in time %}
+                                                                <option value="{{row.time}}">{{row.time}}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                        &nbsp;
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <b> From Time </b>
+
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <select name="time1" data-live-search="true" id="time1"
+                                                                    class="form-control">
+                                                                    {% for row in time1 %}
+                                                                    <option value="{{row.time1}}">{{row.time1}}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        &nbsp;
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <b> Period Name</b>
+                                                            </div>
+                                                            <div class="col-md-10">
+
+                                                                <select name="periodname" id="periodname"
+                                                                    class="form-control">
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+
+                                                                </select>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <b> Day</b>
+                                                            </div>
+                                                            <div class="col-md-10">
+
+                                                                <select name="day" id="day" class="form-control">
+                                                                    <option value="Mon">Mon</option>
+                                                                    <option value="Tue">Tue</option>
+                                                                    <option value="Wed">Wed</option>
+                                                                    <option value="Thu">Thu</option>
+                                                                    <option value="Fri">Fri</option>
+                                                                    <option value="Sat">Sat</option>
+
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="form-group">
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">submit</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- <div class="col-md-2">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">submit</button>
+                                        </div>
+                                    </div> -->
+
+                            </div>
+
+
+
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+                            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+                            <script>
+                                $(document).ready(function () {
+                                    $("#name").selectpicker();
+
+                                    $("#nationalid").selectpicker();
+
+                                    function load_data(type, category_id) {
+                                        $.ajax({
+                                            url: "/addteacher",
+                                            method: "POST",
+                                            data: { type: type, category_id: category_id },
+                                            dataType: "json",
+                                            success: function (data) { //alert(category_id)
+                                                var html = "";
+                                                for (var count = 0; count < data.length; count++) {
+                                                    html += '<option value="' + data[count].id + '">' + data[count].name + "</option>";
+                                                }
+                                                if (type == "abcdata") {
+                                                    $("#name").html(html);
+                                                    $("#name").selectpicker("refresh");
+                                                } else {
+                                                    $("#nationalid").html(html);
+                                                    $("#nationalid").selectpicker("refresh");
+                                                }
+                                            },
+                                        });
+                                    }
+                                    $(document).on("change", "#name", function () {
+                                        var category_id = $("#name").val();
+                                        load_data("ghldata", category_id);
+                                    });
+                                });
+                                </script>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+                <!-- </div> -->
+                </form>
+            </div>
+            <div class="cal1" style="visibility:hidden">
+
+            </div>
+
+
+            <!--footer-->
+
+            <!--//footer-->
+        </div>
+        <!-- Classie -->
+        <!-- Classie -->
+        <!-- Classie -->
+        {%include "UI/Admin/footer.html"%}
+
+</html>
