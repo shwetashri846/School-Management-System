@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+{%include "UI/Faculty/head.html" %}
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{%include "UI/Faculty/sidebar.html" %}
+		<!--left-fixed -navigation-->
+		{%include "UI/Faculty/header1.html" %}
+        <!----main content-->
+        <div id="page-wrapper">
+            <div class="main-page">
+                
+                    <div class="row">
+                        <center>
+                            <h1>{{msg}}</h1>
+                        </center>
+                        <h3 class="title1"><u><b><center> View Student<center></b></u></h3>
+                        <div class="form-three widget-shadow">
+                            <form class="form-horizontal" action="/UI/Faculty/viewstudent" method="post">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <b>Class</b>
+                                        </div>
+                                        <!-- <div class="col-md-7">
+                                            <input type="text" name="add_session" id="add_session" class="form-control" value="{{studentreport['add_session']}}">
+                                                
+                                        </div> -->
+                                        <div class="col-md-7">
+                                            <select name="add_session" id="add_session" class="form-control"data-live-search="true">
+                                                {% for row in studentreport%}
+                                                <option value="{{row.0}}">{{row.0}}</option>
+                                                {%endfor%}
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                             
+                                             
+                                                <input type="submit" name="submit" class="btn btn-primary" value="Seach">
+                 
+                 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+							</form>
+                        </div>
+                            
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="cal1" style="visibility:hidden">
+
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+
+    <!--//footer-->
+    </div>
+    <!-- Classie -->
+    <!-- Classie -->
+    <!-- Classie -->
+   {% include "UI/Faculty/footer.html" %}
+
+</html>

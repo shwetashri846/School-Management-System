@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% include "UI/Faculty/head.html"%}
+
+
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{% include "UI/Faculty/sidebar.html"%}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{% include "UI/Faculty/header1.html"%}
+		<!-- //header-ends -->	
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				
+				
+                <div class="row">
+					<center><h1>{{msg}}</h1></center>
+                    <h3 class="title1"><u><b><center>View Student<center></b></u></h3>
+                    <div class="form-three widget-shadow">
+                        <form class="form-horizontal" action="/UI/Faculty/viewstudent1" method="post">
+							
+								
+							</form>
+							<div class="row">
+								<div class="col-md-3">
+								&nbsp;
+							    </div>
+								<div class="col-md-12 table-responsive text-nowrap">
+									<table id="data" class="table table-striped">
+										<!--Table head-->
+										<thead>
+											<tr>
+												<th>Sl.No</th>
+										        <th>add_session</th>
+												<th>Name</th>
+												<th>Father Name</th>
+												<th>Mother Name</th>
+												<th>Addmission</th>
+												
+												<th>admissiondate</th>
+												<th>Birthdate</th>
+										        <th>Gender</th>
+												<th>Aadharno</th>
+												<th>religion</th>
+												<th>Caste</th>
+												<th>Housename</th>
+												
+												<th>Phone</th>
+												<th>Email</th>
+										        <th>Class</th>
+												<th>Add_section</th>
+												<th>Stream</th>
+												<th>Roll No</th>
+												<th>Fee eeexcused</th>
+												
+												<th>Present Address</th>
+												<th>Permanent Address</th>
+												<th>Username</th>
+										        <th>Password</th>
+												<th>File_Name</th>
+												
+										  
+										    </tr>
+									    </thead>
+										<tbody>
+											{% for row in studentreport %}
+											<tr>
+												<td>{{ row.0 }}</td>
+												<td>{{ row.1 }}</td>
+												<td>{{ row.2 }}</td>
+												<td>{{ row.3 }}</td>
+												<td>{{ row.4 }}</td>
+												<td>{{ row.5 }}</td>
+												<td>{{ row.6 }}</td>
+												<td>{{ row.7 }}</td>
+												<td>{{ row.8 }}</td>
+												<td>{{ row.9 }}</td>
+												<td>{{ row.10 }}</td>
+												<td>{{ row.11 }}</td>
+												<td>{{ row.12 }}</td>
+												<td>{{ row.13 }}</td>
+												<td>{{ row.14 }}</td>
+												<td>{{ row.15 }}</td>
+												<td>{{ row.16 }}</td>
+												<td>{{ row.17 }}</td>
+												<td>{{ row.18 }}</td>
+												<td>{{ row.19 }}</td>
+												<td>{{ row.20 }}</td>
+												<td>{{ row.21 }}</td>
+												<td>{{ row.22 }}</td>
+												<td>{{ row.23 }}</td>
+												<td>{{ row.24 }}</td>
+                                            </tr>
+                                        {% endfor  %}
+                                    </tbody>
+                                </table>
+                            </div>
+					</div>
+					<div class="col-md-3">
+						&nbsp;
+					</div>
+				</div>
+            </div>
+        </div>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+	<div class="cal1" style="visibility:hidden">
+						
+	</div>
+		
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+</div>
+<!-- Classie -->
+	<!-- Classie -->
+	<!-- Classie -->
+{%include "/UI/Faculty/footer.html"%}
+</html>

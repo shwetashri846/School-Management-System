@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+{%include "UI/Faculty/head.html" %}
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{%include "UI/Faculty/sidebar.html" %}
+		<!--left-fixed -navigation-->
+		{%include "UI/Faculty/header1.html" %}
+        <!----main content-->
+        <div id="page-wrapper">
+            <div class="main-page">
+                <!-- <form action="/addclass" method="POST"> -->
+                    <!-- <div class="row-one">
+                        <div class="col-md-4 widget">
+                            <div class="stats-left ">
+                                <h5>Today</h5>
+                                <h4>Teachers</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label> 45</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="col-md-4 widget states-mdl">
+                            <div class="stats-left">
+                                <h5>Today</h5>
+                                <h4>Students</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label> 80</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="col-md-4 widget states-last">
+                            <div class="stats-left">
+                                <h5>Today</h5>
+                                <h4>Departments</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label>51</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div> -->
+                   
+                    <div class="row">
+                        <center>
+                            <h1>{{msg}}</h1>
+                        </center>
+                        <h3 class="title1"><u><b><center> Routine Classwise<center></b></u></h3>
+                        <div class="form-three widget-shadow">
+                            <form class="form-horizontal" action="/UI/Faculty/routineclasswise1" method="post">
+								<!-- <div class="container">
+									<div class="row">
+										<div class="col-md-2">
+											<b>National Id</b>
+											</div>
+										<div class="col-md-8">
+											<select name="nationalid" data-live-search="true" id="nationalid"class="form-control" > 
+												{% for row in routine %}
+												<option>{{row.0}}</option>
+												{% endfor %}
+												</select>
+										</div>
+										<div class="col-md-2">
+											<button type="submit"class="btn btn-primary">Search</button>
+									    
+										</div>
+									</div>
+								</div> -->
+
+                            </form>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    &nbsp;
+                                </div>
+                                <div class="col-md-12 table-responsive text-nowrap">
+                                    <table class="table table-bordered">
+										<thead>
+										  <tr>
+											<th>Day</th>
+											<th>1st</th>
+											<th>2nd</th>
+											<th>3rd</th>
+											<th>4st</th>
+											<th>5nd</th>
+											<th>6rd</th>
+											<th>7nd</th>
+											<th>8rd</th>
+										  </tr>
+										</thead>
+										<tbody>
+										  <tr>
+											<td>Mon</td>
+											 
+                                
+											{% for row in routine %} 
+											
+											
+											<td>
+												<span>{{row.0}}</span><br> 
+												<span>{{row.1}}</span>
+											</td>
+											{% endfor %}
+											
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+										  </tr>
+										  <tr>
+											<td>Tue</td>
+											<td>Moe</td>
+											<td>mary@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+										  </tr>
+										  <tr>
+											<td>Wed</td>
+											<td>Dooley</td>
+											<td>july@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+										  </tr>
+										  <tr>
+											<td>Thu</td>
+											<td>Dooley</td>
+											<td>july@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+										  </tr>
+										  <tr>
+											<td>Fri</td>
+											<td>Dooley</td>
+											<td>july@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+										  </tr>
+										  <tr>
+											<td>Sat</td>
+											<td>Dooley</td>
+											<td>july@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+											<td>Doe</td>
+											<td>john@example.com</td>
+										  </tr>
+										</tbody>
+									  </table>
+                            	</div> 
+                        	</div>
+                    	</div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="cal1" style="visibility:hidden">
+
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+
+    <!--//footer-->
+    </div>
+    <!-- Classie -->
+    <!-- Classie -->
+    <!-- Classie -->
+   {% include "UI/Faculty/footer.html" %}
+
+</html>

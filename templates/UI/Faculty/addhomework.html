@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+{%include "UI/Faculty/head.html"%}
+
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{%include "UI/Faculty/sidebar.html"%}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{%include "UI/Faculty/header1.html"%}
+		<!-- //header-ends -->	
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				<div class="row">
+					<center><h1>{{msg}}</h1></center>
+					<h3 class="title1"><u><b><center>Add Homework<center></b></u></h3>
+					<div class="form-three widget-shadow">
+						<form class="form-horizontal" action="/UI/Faculty/addhomework" method="post">
+							<div class="row">
+								<div class="col-md-1">
+								</div>
+									<div class="col-md-11">
+										
+                                        <div class="row">
+											<div class="col-md-2">
+												<b>Class</b>
+											</div>    
+											<div class="col-md-9">
+												<select name="class" data-live-search="true" id="add_class"    class="form-control" > 
+													{% for row in routine %}
+													<option value="{{row.class}}">{{row.class}}</option>
+													{% endfor %}
+												</select>
+											</div>
+											
+		
+		
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												<b>Section</b>
+											</div>    
+											<div class="col-md-9">
+												<select name="add_section" data-live-search="true" id="add_secction"    class="form-control" > 
+													{% for row in routine %}
+													<option value="{{row.add_section}}">{{row.add_section}}</option>
+													{% endfor %}
+												</select>
+											</div>
+											
+		
+		
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												<b>Subject</b>
+											</div>    
+											<div class="col-md-9">
+												<select name="subject" data-live-search="true" id="subject"    class="form-control" > 
+													{% for row in routine %}
+													<option value="{{row.subject}}">{{row.subject}}</option>
+													{% endfor %}
+												</select>
+											</div>
+											
+		
+		
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												<b>Title</b>
+											</div>    
+											<div class="col-md-9">
+												<input type="text" name="title"  id="title"    class="form-control" placeholder="Title" > 
+													
+											</div>
+											
+		
+		
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												<b>Description</b>
+											</div>    
+											<div class="col-md-9">
+												<textarea type="text" name="description"  id="description"    class="form-control" placeholder="Description">
+												</textarea> 
+													
+											</div>
+											
+		
+		
+										</div>
+										<div class="row">
+											<dl>
+												<div class="col-md-2">
+													<b>File Upload</b>
+												</div>
+												
+												<div class="col-md-9" >   
+											
+		
+													
+				
+													<input type="file" name="files1[]" id="fileInput1" class="form-control" multiple>
+				
+														
+												</div>
+											</dl>
+											
+											
+											<div class="col-md-1" >
+												<div class="form-group" >
+												 
+												 
+													<input type="submit" name="submit" class="btn btn-primary" value="UPLOAD"/>
+					 
+					 
+												</div>
+											</div>
+											
+		
+		
+										</div>
+
+                                        
+										
+									</div>	
+								</div>
+								<script>
+									$(document).ready(function(){
+									 // File type validation
+										$("#fileInput1").change(function(){
+											var fileLength = this.files1.length;
+											var match= ["image/jpeg","image/png","image/jpg","image/gif"];
+											var i;
+											for(i = 0; i < fileLength; i++){ 
+												var file = this.files1[i];
+												var imagefile = file.type;
+												if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]) || (imagefile==match[3]))){
+													alert('Please select a valid image file (JPEG/JPG/PNG/GIF).');
+													$("#fileInput1").val('');
+													return false;
+												}
+											}
+										});
+									});
+								</script>
+	
+								<script type="text/javascript">
+									function copy()
+									{
+										var presentaddress = document.getElementById("presentaddress");
+										var permanentaddress = document.getElementById("permanentaddress");
+										permanentaddress.value = presentaddress.value;
+									}
+								</script>
+								
+								
+
+						 
+
+								
+								
+								
+								
+						  
+							
+							
+							
+
+							
+							
+							
+							
+						</form>
+
+
+						<div class="row">
+							<div class="col-md-3">
+								&nbsp;
+							</div>
+							<div class="col-md-12 table-responsive text-nowrap">
+								<table id="data" class="table table-striped">
+
+									<!--Table head-->
+									<thead>
+										<tr>
+										  <th>Sl.No</th>
+										  <th>Class</th>
+										  <th>Section</th>
+										  <th>Subject</th>
+										  <th>Title</th>
+										  <th>Description</th>
+										  <th>Picture</th>
+
+										  
+										  
+										</tr>
+									  </thead>
+									  <!--Table head-->
+							
+									  <!--Table body-->
+								   
+									  <tbody>
+										  {% for row in addhomework %}
+											  <tr>
+												  <td>{{ row.0 }}</td>
+												  <td>{{ row.1 }}</td>
+												  <td>{{ row.2 }}</td>
+												  <td>{{ row.3 }}</td>
+												  <td>{{ row.4 }}</td>
+												  <td>{{ row.5 }}</td>
+												  <td>{{ row.6 }}</td>
+												  
+											</tr>
+											<!-- <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+															<h4 class="modal-title">Update Class</h4>
+														</div>
+														<div class="modal-body">
+															<form action="/update" method="POST">
+																<div class="form-group">
+																	<label>Add Class:</label>
+																	<input type="hidden"  name="id" value="{{row.0}}">
+																	<input type="text" class="form-control" name="class"id="class" value="{{row.1}}">
+									 
+									 
+																</div>
+																<div class="form-group">
+									 
+									 
+																	<button class="btn btn-primary" type="sbumit">Update</button>
+									 
+									 
+																</div>
+															</form>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														</div>
+													</div>
+												</div>
+											</div> -->
+										{% endfor  %}
+								</tbody>
+							</table>
+						</div> 
+
+
+
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	<div class="cal1" style="visibility:hidden">
+						
+	</div>
+		
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+</div>
+<!-- Classie -->
+	<!-- Classie -->
+	<!-- Classie -->
+	{%include "UI/Faculty/footer.html"%}
+</html>
