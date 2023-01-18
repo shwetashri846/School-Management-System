@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SMS</title>
+{% include 'UI/student/head.html' %}
+
+
+
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{% include 'UI/student/sidebar.html' %}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{% include 'UI/student/header.html' %}
+		<!-- //header-ends -->	
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				
+				<div class="row">
+					<center><h1>{{msg}}</h1></center>
+					<h3 class="title1"><u><b><center>Homework</center><center></b></u></h3>
+					<div class="form-three widget-shadow">
+						<form class="form-horizontal" action="/UI/student/homework" method="post">
+							
+						</form>
+
+
+ 
+						
+					</div>
+					<div class="col-md-3">
+						&nbsp;
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	<div class="cal1" style="visibility:hidden">
+						
+	</div>
+		
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+</div>
+<!-- Classie -->
+	<!-- Classie -->
+	<!-- Classie -->
+	{% include 'UI/student/footer.html' %}	
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    {%include "UI/Admin/head.html"%}
+
+
+    <!--//Metis Menu -->
+</head>
+
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+        <!--left-fixed -navigation-->
+        {%include "UI/Admin/sidebar.html"%}
+        <!--left-fixed -navigation-->
+        <!-- header-starts -->
+        {%include "UI/Admin/header2.html"%}
+        <!-- //header-ends -->
+        <!----main content-->
+        <div id="page-wrapper">
+            <div class="main-page">
+                <!-- <form action="/addclass" method="POST"> -->
+                    <!-- <div class="row-one">
+                        <div class="col-md-4 widget">
+                            <div class="stats-left ">
+                                <h5>Today</h5>
+                                <h4>Teachers</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label> 45</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="col-md-4 widget states-mdl">
+                            <div class="stats-left">
+                                <h5>Today</h5>
+                                <h4>Students</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label> 80</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="col-md-4 widget states-last">
+                            <div class="stats-left">
+                                <h5>Today</h5>
+                                <h4>Departments</h4>
+                            </div>
+                            <div class="stats-right">
+                                <label>51</label>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div> -->
+                   
+                    <div class="row">
+                        <center>
+                            <h1>{{msg}}</h1>
+                        </center>
+                        <h3 class="title1"><u><b><center> Add Fee Report<center></b></u></h3>
+                        <div class="form-three widget-shadow">
+                            <form class="form-horizontal" action="/UI/Report/addfeereport" method="post">
+
+
+                            </form>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    &nbsp;
+                                </div>
+                                <div class="col-md-12 table-responsive text-nowrap">
+                                    <table id="data" class="table table-striped" style="background-color:rgb(154, 173, 255);">
+    
+                                        <!--Table head-->
+                                        <thead>
+                                            <tr>
+                                              <th>Sl.No</th>
+                                              <th>FEETITLE</th>
+                                              <th>CATEGORY</th>
+                                              <th>CLASS</th>
+                                              <th>FEE AMOUNT</th>
+                                              <th>Roll No</th>
+                                              <th>Section</th>
+                                              <th>Session</th>
+                                              <th>EDIT</th>
+                                              <th>DELETE</th>
+                                              
+                                            </tr>
+                                          </thead>
+                                          <!--Table head-->
+                                
+                                          <!--Table body-->
+                                       
+                                          <tbody>
+                                              {% for row in addfeeamount %}
+                                                  <tr>
+                                                      <td>{{ row.0 }}</td>
+                                                      <td>{{ row.1 }}</td>
+                                                      <td>{{ row.2 }}</td>
+                                                      <td>{{ row.3 }}</td>
+                                                      <td>{{ row.4 }}</td>
+                                                      <td>{{ row.5 }}</td>
+                                                      <td>{{ row.6 }}</td>
+                                                      <td>{{ row.7 }}</td>
+                                                      <td>
+                                                        <a href="/UI/Report/addfeereport/{{row.0}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.0}}" style="width:35px;height:35px;padding:6px 2px"><span class="glyphicon glyphicon-edit" style="width:32px;height:32px"></span></a>
+                                                      </td>
+                                                      <td>
+                                                        <a href="/deleteaddfeeclass/{{ row.0 }}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')"style="width:35px;height:35px;padding:6px 2px"><span class="glyphicon glyphicon-trash" style="width:32px;height:32px"></span></a>
+                                                    </td>
+                                                </tr>
+                                                <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">Update Fee</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="/UI/Report/addfeereport" method="POST">
+                                                                    <div class="form-group">
+                                                                        <label>Feetitle:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="feetitle"id="feetitle" value="{{row.1}}">
+                                                                        <label>Category:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="category"id="category" value="{{row.2}}">
+                                                                        <label>Select Class:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="class"id="add_class" value="{{row.3}}">
+                                                                        <label>Fee Amount:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="feeamount"id="feeamount" value="{{row.4}}">
+                                                                        <label>Roll No:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="rollno"id="rollno" value="{{row.5}}">
+                                                                        <label>Section:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="add_section"id="add_section" value="{{row.6}}">
+                                                                        <label>Session</label>:</label>
+                                                                        <input type="hidden"  name="id" value="{{row.0}}">
+                                                                        <input type="text" class="form-control" name="add_session"id="add_session" value="{{row.7}}">
+                                         
+                                                                    </div>
+                                                                    <div class="form-group">
+                                         
+                                         
+                                                                        <button class="btn btn-primary" type="sbumit">Update</button>
+                                         
+                                         
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                            </td> 
+                                        </tr>
+                                        {% endfor  %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="cal1" style="visibility:hidden">
+
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+
+    <!--//footer-->
+    </div>
+    <!-- Classie -->
+    <!-- Classie -->
+    <!-- Classie -->
+    {%include "UI/Admin/footer.html"%}
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+{%include "UI/Admin/head.html"%}
+
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{%include "UI/Admin/sidebar.html" %}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{%include "UI/Admin/header2.html"%}
+		<!-- //header-ends -->	
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				
+
+                
+                
+                <div class="row">
+                    <center><h3 class="title1"><b><u>MANAGE ClASS REPORT</u></b></h3></center>
+                    <div class="form-three widget-shadow">
+						<form class="form-horizontal" action="/UI/Report/manageclassreport" method="post">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    &nbsp;
+                                </div>
+                                <div class="col-md-12 table-responsive text-nowrap">
+                                    <table id="data" class="table table-striped" style="background-color:rgb(154, 173, 255);">
+    
+                                        <!--Table head-->
+                                        <thead>
+                                            <tr>
+                                              <th>Sl.No</th>
+                                              
+                                              <th>CLASS </th>
+                                              <th>NUMERIC NAME</th>
+                                              <th>CLASS TEACHER</th>
+                                              <th>NOTE</th>
+											  <th>EDIT</th>
+											  <th>DELETE</th>
+                                              
+                                             
+                                              
+    
+    
+    
+    
+    
+    
+    
+                                              
+                                            </tr>
+                                          </thead>
+                                          <!--Table head-->
+                                
+                                          <!--Table body-->
+                                       
+                                        <tbody>
+                                            {% for row in manageclass %}
+                                                <tr>
+                                                    <td>{{ row.0 }}</td>
+                                                    <td>{{ row.1 }}</td>
+                                                    <td>{{ row.2 }}</td>
+                                                    <td>{{ row.3 }}</td>
+                                                    <td>{{ row.4 }}</td>
+                                                    
+								                    <td>
+														<a href="/UI/Report/manageclassreport/{{row.0}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.0}}"style="width:35px;height:35px;padding:6px 2px"><span class="glyphicon glyphicon-edit" style="width:32px;height:32px"></span></a>
+													</td>
+													<td>
+														<a href="/deletemanageclass/{{ row.0 }}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')"style="width:35px;height:35px;padding:6px 2px"><span class="glyphicon glyphicon-trash" style="width:32px;height:32px"></span></a>
+													</td>
+												</tr>
+													<div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal">&times;</button>
+																	<h4 class="modal-title">Update Manage Class</h4>
+																</div>
+																<div class="modal-body">
+																	<form action="/UI/Report/manageclassreport" method="POST">
+																		<div class="form-group">
+																			<label>Class:</label>
+																			<input type="hidden"  name="id" value="{{row.0}}">
+																			<input type="text" class="form-control" name="class"id="add_class" value="{{row.1}}">
+											 
+											 
+																		</div>
+																		<div class="form-group">
+																			<label>Numeric Name:</label>
+																			<input type="hidden"  name="id" value="{{row.0}}">
+																			<input type="text" class="form-control" name="numericname"id="numericname" value="{{row.2}}">
+											 
+											 
+																		</div>
+																		<div class="form-group">
+																			<label>Class Teacher:</label>
+																			<input type="hidden"  name="id" value="{{row.0}}">
+																			<input type="text" class="form-control" name="classteacher"id="classteacher" value="{{row.3}}">
+											 
+											 
+																		</div>
+																		<div class="form-group">
+																			<label>Note:</label>
+																			<input type="hidden"  name="id" value="{{row.0}}">
+																			<input type="text" class="form-control" name="note"id="note" value="{{row.4}}">
+											 
+											 
+																		</div>
+																		<div class="form-group">
+											 
+											 
+																			<button class="btn btn-primary" type="sbumit">Update</button>
+											 
+											 
+																		</div>
+																	</form>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												
+												</td> 
+											</tr>
+											{% endfor  %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="col-md-3">
+								&nbsp;
+							</div>
+						</div>
+					</div>
+				</div>
+		
+		
+    
+    
+            
+							
+
+										
+									
+				
+					
+								
+
+						 
+
+								
+
+						  
+							
+							
+							
+
+							
+							
+							
+							
+						</form>
+
+
+
+						
+        
+        
+        
+        
+        
+        
+        
+        
+	<div class="cal1" style="visibility:hidden">
+						
+	</div>
+		
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+</div>
+<!-- Classie -->
+	<!-- Classie -->
+	<!-- Classie -->
+	{% include "UI/Admin/footer.html"%}
+</html>

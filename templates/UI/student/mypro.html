@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SMS</title>
+{% include 'UI/student/head.html' %}
+
+
+
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		{% include 'UI/student/sidebar.html' %}
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		{% include 'UI/student/header.html' %}
+		<!-- //header-ends -->	
+        <!----main content-->
+        <div id="page-wrapper">
+			<div class="main-page">
+				
+				<div class="row">
+					<center><h1>{{msg}}</h1></center>
+					<h3 class="title1"><u><b><center>My Profile</center><center></b></u></h3>
+					<div class="form-three widget-shadow">
+						<form class="form-horizontal" action="/UI/student/mypro" method="post">
+							<div class="row">
+								<p>
+									{% with messages = get_flashed_messages() %}
+									{% if messages %}
+									<ul>
+										{% for message in messages %}
+										<li>{{ message }}</li>
+										{% endfor %}
+									</ul>
+									{% endif %}
+									{% endwith %}
+								</p>
+							</div>
+							<div class="row">
+								<div class="col-md-12" style="background-color:grey">
+									<b><h1 style="color:white;">Basic Information:</h1></b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Name</b>
+									<br>
+									<input type="text" id="name"name="name"class="form-control" value=" {{ studentreport['name'] }}">
+								</div>
+								<div class="col-md-3">
+									<b>Father Name</b>
+									<br>
+									<input type="text" id="fathername"name="fathername"class="form-control" value=" {{ studentreport['fathername'] }}">
+								</div>
+								<div class="col-md-3">
+									<b>Mother Name</b>
+									<br>
+									<input type="text" id="mothername"name="mothername"class="form-control" value=" {{ studentreport['mothername'] }}">
+								</div>
+								<div class="col-md-3">
+									<b>Admission No</b>
+									<br>
+									<input type="text" id="addmission"name="addmission"class="form-control" value=" {{ studentreport['addmission'] }}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Admission Date</b>
+									<br>
+									<input type="text" id="admissiondate"name="admissiondate"class="form-control" value=" {{ studentreport['admissiondate'] }}">
+								</div>
+								<div class="col-md-3">
+									<b>Birth Date</b>
+									<br>
+									<input type="text" id="birthdate"name="birthdate"class="form-control" value=" {{ studentreport['birthdate'] }}">
+								</div>
+								<div class="col-md-3">
+									<b>Gender</b>
+									<br>
+									<input  type="text" class="form-control" id="gender" name="gender" value=" {{ studentreport['gender'] }}">
+										
+								</div>
+							
+								<div class="col-md-3">
+									<b>Aadhar Number</b>
+									<input type="text" id="aadharno" name="aadharno" class="form-control" value=" {{ studentreport['aadharno'] }}">
+								</div>
+							
+							</div>
+							<div class="row">
+								<div class= "col-md-3">
+									<b>Religion<b>
+										<br>
+										<input type="text" class="form-control" id="religion" name="religion" value=" {{ studentreport['religion'] }}">
+											
+										
+								</div>
+								<div class= "col-md-3">
+									<b>Caste<b>
+										<br>
+										<input type="text" class="form-control" id="caste" name="caste" value=" {{ studentreport['caste'] }}">
+										
+								</div>
+								<div class="col-md-3">
+									<b>House Name</b>
+									<input type="text" id="housename" name="housename" class="form-control" value=" {{ studentreport['housename'] }}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Phone</b>
+									<br>
+									<input type="text" id="phone" name="phone"class="form-control" value=" {{ studentreport['phone'] }}">
+								</div>
+								<div class="col-md-3">
+									<b>Email</b>
+									<br>
+									<input type="email" id="email" name="email"class="form-control" value=" {{ studentreport['email'] }}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12" style="background-color:grey">
+									<b><h1 style="color:white;">Academic Information:</h1></b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Class</b>
+									<br>
+									<input type="text" name="class"  id="add_class"    class="form-control" value=" {{ studentreport['class'] }}"> 
+								</div>
+								<div class="col-md-3">
+									<b>Section</b>
+									<br>
+									<input type="text" name="add_section"  id="add_section"   class="form-control" value=" {{ studentreport['add_section'] }}"> 
+								</div>
+								<div class="col-md-3">
+									<b>Stream</b>
+									<br>
+									<input type="text" name="stream"  id="stream" class="form-control" value=" {{ studentreport['stream'] }}"> 
+								</div>
+								<div class="col-md-3">
+									<b>Roll No</b>
+									<br>
+									<input type="text" id="rollno" name="rollno"class="form-control" value=" {{ studentreport['rollno'] }}"> 
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Fee Excused</b>
+									<br>
+									<input type="text" id="feeexcused" name="feeexcused"class="form-control" value=" {{ studentreport['feeexcused'] }}"> 
+								</div>
+								<div class="col-md-3">
+									<b>Session</b>
+									<br>
+									<input type="text"name="add_session"  id="add_session"    class="form-control" value=" {{ studentreport['add_session'] }}"> 
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12" style="background-color:grey">
+									<b><h1 style="color:white;">Address Information:</h1></b>
+								</div>
+							</div>
+							<div class="row">
+								<div class= "col-md-5">
+									<b>Present Address<b>
+										<br>
+										<input type="text"  id="presentaddress" name="presentaddress" class="form-control" value=" {{ studentreport['presentaddress'] }}" >
+									</div>
+									<div class= "col-md-5">
+										<b>Permanent Address<b>
+											<br>
+											<input type="text"  id="permanentaddress" name="permanentaddress" class="form-control" value=" {{ studentreport['permanentaddress'] }}">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12" style="background-color:grey">
+											<b><h1 style="color:white;">Other Information:</h1></b>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-3">
+											<b>Username </b>
+											<br>
+											<input type="text" id="username" name="username" class="form-control" value=" {{ studentreport['username'] }}">
+										</div>
+										<br>
+									</div>
+									<hr>
+									<div class="row">
+										<div class="col-md-2">
+											<div class="form-group">
+												<input type="submit" name="submit" class="btn btn-primary" value="update">
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="form-group">
+												<button type="button" class="btn btn-default" >Close</button>
+											</div>
+										</div>
+									</div>
+								</form>
+
+
+ 
+						
+					</div>
+					<div class="col-md-3">
+						&nbsp;
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	<div class="cal1" style="visibility:hidden">
+						
+	</div>
+		
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	
+	<!--//footer-->
+</div>
+<!-- Classie -->
+	<!-- Classie -->
+	<!-- Classie -->
+	{% include 'UI/student/footer.html' %}	
+</html>
